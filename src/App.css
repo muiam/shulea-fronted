@@ -1,0 +1,1134 @@
+.login-flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: fixed;
+  height: 700px;
+}
+
+.login-wallpaper {
+  flex: 2;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-size: cover;
+}
+
+.login-wallpaper img {
+  object-fit: cover;
+}
+
+.login-page {
+  flex: 1;
+  width: 400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.login-page h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+.logo {
+  padding-top: 30px;
+}
+
+.logo img {
+  width: 60px;
+  height: 90px;
+  display: block;
+  margin: auto;
+}
+
+.login-form {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+.p-or {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.login-form p {
+  text-align: center;
+}
+
+/* input[type="text"],
+[type="password"] {
+  width: calc(100% - 40px);
+  padding: 14px 0px;
+  border-radius: 10px;
+  text-indent: 40px;
+} */
+label {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+  background-color: transparent;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  width: calc(100% - 40px);
+  font-family: inherit;
+}
+
+::selection {
+  background-color: aqua;
+  color: black;
+}
+.enter-mark-flex {
+  display: flex;
+  flex-direction: column;
+}
+.enter-mark-save-btn {
+  background-color: aqua;
+  align-self: flex-end;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+  background-color: aqua;
+  width: 100%;
+  height: 50px;
+  text-indent: 40px;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  body,
+  nav,
+  head,
+  html {
+    height: 100%;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  #login-wallpaper {
+    display: none;
+  }
+
+  .login-page {
+    min-height: 100vh;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Courier New", Courier, monospace;
+}
+nav {
+  z-index: 1;
+  position: fixed;
+  background-color: aqua;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 90px;
+  overflow: hidden;
+  transition: width 0.2s linear;
+  box-shadow: 0 28px 35px black;
+}
+
+.logo-navbar {
+  text-align: center;
+  display: flex;
+  transition: all 0.5s ease;
+  margin: 10px 0 0 10px;
+}
+
+.logo-navbar span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 25px;
+  /* text-transform: uppercase; */
+}
+
+.logo-navbar img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: rgba(255, 217, 0, 0.322) enrod;
+}
+a {
+  position: relative;
+  color: rgb(73, 68, 68);
+  font-size: 25px;
+  display: table;
+  width: 300px;
+  padding: 10px;
+}
+
+.fa-solid {
+  position: relative;
+  top: 14px;
+  width: 78px;
+  height: 38px;
+  font-size: 20px;
+  text-align: center;
+}
+.nav-item {
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+nav ul li a:hover {
+  background-color: white;
+}
+nav:hover {
+  width: 300px;
+  transition: all 0.5s ease;
+}
+.logout {
+  position: absolute;
+  bottom: 0;
+}
+
+.app-content-start {
+  margin-left: 110px;
+}
+
+.name-arrow {
+  display: flex;
+  align-items: center;
+}
+.div-right {
+  float: right;
+}
+
+.name-arrow a {
+  margin: 0; /* Adjust this value as needed */
+}
+
+.dashboard-statistics {
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard-holder {
+  display: flex;
+  margin: 50px 0px 100px 50px;
+}
+.container-dashboard {
+  flex-direction: row;
+  background-color: aqua;
+  height: 200px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 250px;
+  border-radius: 15px;
+}
+.ledger-btns {
+  display: flex;
+}
+.add-new {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  float: right;
+  margin-right: 10px;
+  width: 400px;
+  margin-top: 10px;
+}
+.select-items-for-payroll {
+  background-color: aqua;
+  width: 100%;
+  margin-right: 5px;
+}
+.default-dashboard-stats-container {
+  height: 500px;
+  width: 100%;
+  display: flex;
+}
+.main-dashboard-container {
+  flex: 2;
+
+  height: 100%;
+}
+.minor-dashboard-container {
+  flex: 1;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.input-radio {
+  display: flex;
+  gap: 10px;
+}
+.teacher-dashboard-flex {
+  display: flex;
+  width: calc(100% - 10px);
+  gap: 10px;
+}
+.head-dashboard-container {
+  height: 100px;
+  width: 100%;
+  background-color: aqua;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quick-links {
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.quick-links p {
+  margin-bottom: 10px;
+}
+
+.quick-links-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px; /* Adjust the gap between buttons */
+}
+
+.quick-link {
+  border: 1px solid aqua;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.quick-link:hover {
+  background-color: #ddd;
+}
+
+@media only screen and (max-width: 768px) {
+  .quick-links {
+    height: fit-content;
+  }
+  #teacher-dashboard-flex {
+    flex-direction: column;
+  }
+
+  #radio-input-zone {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #menu-single-item {
+    flex-direction: column;
+  }
+  .default-dashboard-stats-container {
+    flex-direction: column;
+    height: 100%;
+  }
+  #new-payroll-entries-zone {
+    flex-direction: column;
+    width: 290px;
+  }
+  .select-items-for-payroll {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  #filter-year-payroll-zone {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #toggle-grade-for-results-zone {
+    flex-direction: column;
+  }
+  #add-start-app-area {
+    margin-right: 30px;
+  }
+  .app-content-start {
+    margin-left: 100px;
+  }
+  .dashboard-holder {
+    display: block;
+    margin-top: 50px;
+    margin-left: 120px;
+    margin-right: 20px;
+    height: fit-content;
+  }
+
+  .container-dashboard {
+    background-color: aqua;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 250px;
+    border-radius: 15px;
+  }
+  .teachers-table {
+    width: 100%;
+    margin-right: 0;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+  .default-table {
+    width: 100%;
+    margin-right: 0;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+  #new-payroll {
+    background-color: aqua;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 15px;
+    flex: 1;
+    margin-top: 10px;
+  }
+
+  th,
+  td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  td {
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+  }
+
+  /* Optional: Add styles for the buttons in mobile view */
+  button {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header h1 {
+    margin-bottom: 20px;
+  }
+
+  .search-input,
+  .search-btn {
+    margin: 10px 0;
+  }
+  nav:hover {
+    z-index: 5;
+  }
+
+  .add-btn {
+    text-align: center;
+    flex: 0.5;
+    padding: 20px 10px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    background-color: aqua;
+    color: black; /* text color */
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .error-text {
+    height: 50%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20%;
+    border-radius: 10px;
+  }
+  .new-assign-form {
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  #show-error-btn {
+    margin-top: 30px;
+  }
+  #error-text {
+    margin-top: 0;
+  }
+  .form-container {
+    margin-right: 30px;
+    width: 100%; /* Adjusts the form width for smaller screens */
+  }
+
+  .form-select-container {
+    margin-right: 60px;
+    flex-direction: column; /* Stacks the selects vertically on smaller screens */
+  }
+
+  .form-select {
+    margin-bottom: 10px; /* Adds space between selects on smaller screens */
+  }
+  #ledger-btns {
+    flex-direction: column;
+  }
+  .form-button {
+    margin-right: 10px;
+    width: 130px;
+    height: 50px;
+    background-color: aqua;
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+  .add-start-new {
+    margin-right: 30px;
+  }
+  .enter-mark-save-btn {
+    margin-bottom: 50px;
+    align-self: center;
+    width: 100%;
+  }
+  #main-area {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  .student-area {
+    align-items: center;
+    justify-content: center;
+    flex: 3;
+  }
+  .carry-foward-area {
+    flex: 1;
+  }
+  #fees-form-container {
+    width: 80%;
+    justify-content: center;
+    height: 70%;
+    overflow-y: hidden;
+  }
+  .form-ledger-flex {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  #revenue-enter {
+    width: 90%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+  }
+  #post-revenue-btn {
+    background-color: aqua;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+  #revenue-input-container {
+    margin-right: 0;
+    width: 90%;
+  }
+}
+.revenue-input-container {
+  position: relative;
+  display: inline-block;
+  width: calc(90% - 10px);
+  margin-right: 10px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.post-revenue-btn {
+  align-items: center;
+  background-color: aqua;
+  justify-content: center;
+  height: 60px;
+  margin: 0;
+  width: 140px;
+  margin-right: 10px;
+}
+.revenue-enter {
+  border: 2px solid aqua;
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.add-start-new {
+  margin-right: 50px;
+}
+
+.end-btn {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 10px;
+  background-color: aqua;
+  border: none;
+  width: 120px;
+  height: 50px;
+  font-size: 16px;
+  color: black;
+  border-radius: 0.5vw;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.end-btn i {
+  float: right;
+}
+.teachers-table {
+  margin-right: 20px;
+  width: calc(100% - 20px);
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+}
+.default-table {
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  margin-right: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  border: 2px solid #f2f2f2;
+  padding: 15px;
+}
+td {
+  border: 2px solid #f2f2f2;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: aqua;
+}
+
+button {
+  padding: 6px 10px;
+}
+
+.header {
+  margin-top: 10px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5; /* light grey */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  flex: 2;
+  font-size: 24px;
+  color: black;
+}
+
+.search-input {
+  border: 2px solid aqua;
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add-btn {
+  text-align: center;
+  flex: 0.5;
+  padding: 14px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: aqua;
+  color: black; /* text color */
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+}
+.add-start {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.add-form {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.add-form input[type="text"],
+.add-form input[type="number"],
+.add-form select {
+  width: 100%;
+  background-color: aqua;
+  padding: 20px;
+  border-radius: 10px;
+}
+.form-container {
+  margin-right: 50px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto; /* Center the container */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.enter-mark-heading {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.exam-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+.grade-toggle {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.grade-toggle label {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.change-grade {
+  padding: 15px;
+  background-color: aqua;
+  width: 300px;
+  border-radius: 10px;
+}
+.exam-display-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.default-heading {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.enter-mark-area input[type="number"] {
+  background-color: aqua;
+  width: 200px;
+}
+
+.form-container label {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.form-container select {
+  width: 100%;
+  background-color: aqua;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.form-select-container {
+  display: flex;
+  width: 100%;
+}
+
+.form-select {
+  margin-right: 10px;
+  margin-bottom: 10px; /* Adds space between rows on smaller screens */
+  flex: 1 1 80%; /* Allows the select elements to take full width on smaller screens */
+}
+
+.form-button {
+  width: 130px;
+  height: 50px;
+  background-color: aqua;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+
+select option :checked {
+  background-color: green;
+}
+
+.add-form input[type="password"] {
+  width: 100%;
+  background-color: aqua;
+  padding: 20px;
+}
+.add-form label {
+  margin-right: 5px;
+  width: 120px;
+}
+
+.add-record-btn {
+  background-color: aqua;
+  margin-top: 20px;
+  align-self: flex-end;
+  width: 150px;
+  height: 60px;
+  margin-right: 20px;
+}
+.new-record-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-start h2 {
+  text-align: center;
+}
+
+.missing-error {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-text {
+  text-align: center; /* Center the text */
+  padding: 20px; /* Add some padding around the text */
+}
+
+.error-text p {
+  color: rgb(143, 63, 25);
+}
+
+.error-btn {
+  display: inline-flex; /* Use inline-flex to allow the button to be centered with the text */
+  justify-content: center; /* Center the button */
+  width: 150px;
+  height: 50px;
+  background-color: aqua;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+.new-assign-form {
+  margin-top: 20px;
+}
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates a  2-column grid */
+  gap: 10px; /* Spacing between grid items */
+  grid-auto-rows: 5rem; /* Set a fixed height for each row */
+  overflow: auto; /* Allow scrolling if content exceeds the grid height */
+}
+
+.subject-item {
+  display: flex;
+  background-color: aqua;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.subject-label {
+  margin-left: 20px;
+}
+.subject-checkbox {
+  margin-left: 20px;
+}
+.add-form input[type="checkbox"] {
+  display: inline-block;
+}
+
+.assign-btn {
+  background-color: aqua;
+  height: 50px;
+  width: 150px;
+  margin-top: 20px;
+  float: right;
+}
+.subjects-assigned {
+  margin-top: 70px;
+  height: fit-content;
+}
+.subject-assign-heading {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20;
+  font-weight: bold;
+}
+.warning-tip {
+  display: flex;
+  align-items: center;
+}
+.warning-icon {
+  font-size: 40px;
+  color: rgb(199, 80, 25);
+}
+.warning-text {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+/* Overall container styling */
+.results-statistics {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+.new-payroll {
+  background-color: aqua;
+  width: 150px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Styling for the list container */
+.improvement-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 10px;
+}
+
+/* Styling for each list item */
+.improvement-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styling for the percentage improvement */
+.percentage-improvement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+  #report-area {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #report-form-zone {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 70%;
+  }
+  .improvement-list {
+    grid-template-columns: 1fr;
+  }
+  #perfomance-container {
+    flex-direction: column;
+  }
+  #balances-flex {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  #stats-flex-display {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  #ledger.btns {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  #new-fee-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  .fee-balances-btn {
+    margin-top: 10px;
+    width: 300px; /* Set select and button width to 100% */
+  }
+  .new-fee-btn {
+    margin-top: 10px;
+    width: 300px; /* Set select and button width to 100% */
+  }
+  .filter-year select,
+  .new-payroll button {
+    width: 300px; /* Set select and button width to 100% */
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+  }
+  .select-details {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .select-learner-details {
+    margin-top: 10px;
+    padding: 15px;
+  }
+}
+
+.perfomance-container {
+  overflow-y: hidden;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.report-form-zone {
+  flex: 1;
+  border: 1px solid aqua;
+}
+.report-bar-zone {
+  flex: 1;
+  border: 1px solid aqua;
+}
+.report-form-header {
+  text-align: center;
+  margin-top: 20px;
+}
+.results-form-table {
+  margin-right: 10px;
+  margin-right: 10px;
+}
+.change-summary {
+  float: right;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+.form-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.form-fields-grid select {
+  background-color: aqua;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+}
+.form-fields-grid input[type="text"],
+input[type="number"] {
+  background-color: aqua;
+  width: 100%;
+  padding: 20px;
+}
+.main-area {
+  display: flex;
+  height: 500px;
+  margin-top: 2%;
+  margin-right: 20px;
+}
+.student-area {
+  flex: 1;
+}
+.carry-foward-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the container fills the height of its parent */
+}
+
+.detected-amount {
+  width: 50%;
+}
+
+.detected-amount h1 {
+  text-align: center;
+}
+.default-select {
+  width: 100%;
+  background-color: aqua;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  height: 50px;
+}
+#fees-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  justify-content: center;
+  height: 100%;
+  margin-bottom: 40px;
+}
+.student-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .report-area {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .weekly-report-form-zone {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.select-details {
+  height: 50px;
+  width: calc(100% - 10px);
+  display: flex;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.select-learner-details {
+  flex: 1;
+  background-color: aqua;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+.weekly-report-form-zone {
+  margin-top: 10px;
+  height: fit-content;
+  display: grid;
+  gap: 1em;
+  width: calc(100% - 10px);
+  border: none;
+  margin-right: 10px;
+}
+.text-area-form-zone {
+  border: 1px solid aqua;
+  width: 100%;
+}
