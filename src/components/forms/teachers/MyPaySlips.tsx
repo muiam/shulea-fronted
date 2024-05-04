@@ -134,10 +134,11 @@ function MyPaySlips() {
             marginTop: "20px",
           }}
         >
-          {payslips.map((payslip) => (
+          {payslips.map((payslip, index) => (
             <div
               className="payslip-card"
               id="my-payslips-card"
+              key={index}
               style={{
                 border: "1px solid #ccc",
                 borderRadius: "8px",

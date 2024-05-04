@@ -163,7 +163,7 @@ function loginComponent() {
             </ul>
             <div style={styles.contactSection}>
               <h3>Contact Us for Subscription Enquiries</h3>
-              <p>Email: info@example.com</p>
+              <p>Email: support@shulea.com</p>
               <p>Phone: +254 714457130</p>
             </div>
           </div>
