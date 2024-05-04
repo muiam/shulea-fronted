@@ -1023,11 +1023,10 @@ select option :checked {
     gap: 10px;
   }
   #my-payslips-container {
-    background-color: black;
     margin-right: 0;
   }
   #my-payslips-card {
-    width: inherit;
+    max-width: 90%;
   }
 }
 
