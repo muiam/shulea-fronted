@@ -16,11 +16,15 @@ function AddSubjectForm() {
   const [selectedLevelId, setSelectedLevelId] = useState<number | null>(null);
 
   const [isChecked, setIsChecked] = useState(false);
+  const [allGrades, setAllGrades] = useState(false);
   const navigate = useNavigate();
 
   // Function to handle checkbox change
   const handleCheckboxChange = (event: any) => {
     setIsChecked(event.target.checked);
+  };
+  const handleAllGradesChange = (event: any) => {
+    setAllGrades(event.target.checked);
   };
 
   useEffect(() => {
@@ -52,6 +56,7 @@ function AddSubjectForm() {
         name: name,
         required: isChecked,
         level: selectedLevelId,
+        all: allGrades,
       }),
     });
     if (response.status == 201) {
@@ -60,11 +65,19 @@ function AddSubjectForm() {
       setIsChecked(false);
       setName("");
       setSelectedLevelId(null);
-    } else {
-      toast.error("there was an error");
+      setAllGrades(false);
+    } else if (response.status == 404) {
+      toast.error("you have no any levels/grades setup");
       setIsChecked(false);
       setName("");
       setSelectedLevelId(null);
+      setAllGrades(false);
+    } else {
+      toast.error("any error occurred, try again later");
+      setIsChecked(false);
+      setName("");
+      setSelectedLevelId(null);
+      setAllGrades(false);
     }
   };
   return (
@@ -87,23 +100,36 @@ function AddSubjectForm() {
             </div>
 
             <div className="add-form">
-              <label htmlFor="level">grade</label>
-              <select
-                name=""
-                id=""
-                onChange={handleLevelChange}
-                value={selectedLevelId || ""}
-              >
-                <option value="" disabled>
-                  level
-                </option>
-                {levels.map((item, index) => (
-                  <option key={index} value={item.id}>
-                    {item.stream ? item.name + item.stream : item.name}
-                  </option>
-                ))}
-              </select>
+              <label htmlFor="requured">for all grades</label>
+              <input
+                type="checkbox"
+                name="required"
+                value={allGrades ? "true" : "false"}
+                style={{ marginBottom: 0 }}
+                onChange={handleAllGradesChange}
+              />
             </div>
+            {!allGrades && (
+              <div className="add-form">
+                <label htmlFor="level">grade</label>
+                <select
+                  name=""
+                  id=""
+                  onChange={handleLevelChange}
+                  value={selectedLevelId || ""}
+                >
+                  <option value="" disabled>
+                    level
+                  </option>
+                  {levels.map((item, index) => (
+                    <option key={index} value={item.id}>
+                      {item.stream ? item.name + item.stream : item.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             <div className="add-form">
               <label htmlFor="requured">required</label>
               <input
