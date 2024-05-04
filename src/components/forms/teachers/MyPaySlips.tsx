@@ -141,6 +141,7 @@ function MyPaySlips() {
                 borderRadius: "8px",
                 padding: "10px",
                 position: "relative",
+                marginRight: "10px",
               }}
             >
               <div

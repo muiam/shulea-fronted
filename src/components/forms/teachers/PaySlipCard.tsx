@@ -86,7 +86,7 @@ function PayslipCard({}) {
                   {item.paid ? (
                     <span style={{ color: "green" }}>paid</span>
                   ) : (
-                    <span style={{ color: "red" }}>paid</span>
+                    <span style={{ color: "red" }}>unpaid</span>
                   )}
                 </div>
                 {item.description && (
