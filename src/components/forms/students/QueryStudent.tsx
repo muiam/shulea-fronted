@@ -268,9 +268,11 @@ function QueryStudent() {
                 </tbody>
               </table>
             </div>
-            <button type="submit" className="enter-mark-save-btn">
-              Save
-            </button>
+            {studentMarks.length > 0 && (
+              <button type="submit" className="enter-mark-save-btn">
+                Save
+              </button>
+            )}
           </form>
         </div>
       </div>
