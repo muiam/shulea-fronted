@@ -556,6 +556,11 @@ nav:hover {
     margin-right: 0;
     width: 90%;
   }
+
+  #header {
+    margin-top: 500px;
+    margin-bottom: 0;
+  }
 }
 .revenue-input-container {
   position: relative;
@@ -1001,6 +1006,22 @@ select option :checked {
     margin-top: 10px;
     padding: 15px;
   }
+  #payslip-container-main-one {
+    width: 100%;
+    margin-left: 0;
+  }
+  #details,
+  #earnings,
+  #deductions,
+  .net-pay {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 }
 
 .perfomance-container {
@@ -1131,4 +1152,54 @@ input[type="number"] {
 .text-area-form-zone {
   border: 1px solid aqua;
   width: 100%;
+}
+
+.payslip-container-main-one {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.description-section {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.details,
+.earnings,
+.deductions,
+.net-pay {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 5px;
+}
+.detail-item,
+.earning-item,
+.deduction-item,
+.net-item {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.detail-item,
+.earning-item,
+.deduction-item,
+.net-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.detail-item:last-child,
+.earning-item:last-child,
+.deduction-item:last-child,
+.net-item:last-child {
+  border-bottom: 1px solid #ddd;
 }

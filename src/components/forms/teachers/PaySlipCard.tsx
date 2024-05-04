@@ -22,6 +22,8 @@ interface Payslip {
   last_name: string;
   first_name: string;
   total_allowances: number;
+  tax: number;
+  description: string;
   // Add other properties as needed
 }
 
@@ -53,7 +55,6 @@ function PayslipCard({}) {
       console.error("Error fetching payslip data:", error);
     }
   };
-
   return (
     <>
       <MainNavbar />
@@ -67,173 +68,98 @@ function PayslipCard({}) {
           height: "100vh",
         }}
       >
-        <div
-          className="payslip-container"
-          style={{
-            marginTop: "20px",
-            width: "100%",
-            maxWidth: "800px",
-          }} /* Adjust the maximum width as needed */
-        >
-          {payslips.length === 0 ? (
-            <div style={{ textAlign: "center", color: "red" }}>
-              payslip Not available
-            </div>
-          ) : (
-            payslips.map((payslip, index) => (
+        <>
+          <MainNavbar />
+          <div>
+            {payslips.map((item, index) => (
               <div
+                className="payslip-container-main-one"
+                id="payslip-container-main-one"
                 key={index}
-                className="payslip-card"
-                style={{
-                  border: "1px solid #ccc",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  marginBottom: "20px",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  backgroundColor: "#fff",
-                }}
               >
                 <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "20px",
-                  }}
+                  className="header"
+                  id="header"
+                  style={{ display: "flex", borderBottom: "1px solid aqua" }}
                 >
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                      color: "#333",
-                    }}
-                  >
-                    {payslip.month_name} {payslip.year_name}
+                  <h1>Payslip</h1>
+                  {item.paid ? (
+                    <span style={{ color: "green" }}>paid</span>
+                  ) : (
+                    <span style={{ color: "red" }}>paid</span>
+                  )}
+                </div>
+                {item.description && (
+                  <div className="">
+                    <div className="section-title" id="section-title">
+                      Description
+                    </div>
+                    <div className="description-section">
+                      <p>
+                        This payslip provides a detailed breakdown of your
+                        earnings and deductions for the pay period ending April
+                        2024. It includes your basic salary, overtime pay,
+                        bonuses, income tax, health insurance, retirement fund
+                        contributions, and your net pay. Please review all
+                        details carefully.
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: "15px",
-                      color: "#555",
-                    }}
-                  >
-                    {payslip.paid ? "paid" : "unpaid"}
+                )}
+
+                <div className="section-title">Employee Details</div>
+                <div className="details" id="details">
+                  <div className="detail-item">
+                    Name: {item.first_name + " " + item.last_name}
                   </div>
-                  <div style={{ fontSize: "16px", color: "#555" }}>
-                    Payment Date: {new Date(payslip.date).toLocaleDateString()}
+                  <div className="detail-item">
+                    Employee ID: {item.employeeID}
+                  </div>
+                  <div className="detail-item">
+                    period: {item.month_name + " " + item.year_name}
                   </div>
                 </div>
-                <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                  <tbody>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Employee Name:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        {payslip.first_name} {payslip.last_name}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Email Address:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        {payslip.employee}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Employee ID:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        {payslip.employeeID}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Gross salary:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.gross_salary}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>All allowances:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.total_allowances}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Taxes:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.total_deductions}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Health insurance:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.health_insurance}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Affordable housing:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.affordable_housing}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>NSSF:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.social_security}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Advance salary:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.advance_salary}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Others:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.other_deductions}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Total deductions:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.total_deductions}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ verticalAlign: "top" }}>
-                        <strong>Take home:</strong>
-                      </td>
-                      <td style={{ verticalAlign: "top" }}>
-                        KES {payslip.net_salary}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className="section-title">Earnings</div>
+                <div className="earnings" id="earnings">
+                  <div className="earning-item">
+                    Basic Salary: KES {item.gross_salary}
+                  </div>
+                  <div className="earning-item">
+                    Total Allowances : KES {item.total_allowances}
+                  </div>
+                </div>
+                <div className="section-title">Deductions</div>
+                <div className="deductions" id="deductions">
+                  <div className="deduction-item">Tax: KES {item.tax}</div>
+                  <div className="deduction-item">
+                    Health Insurance: KES: {item.health_insurance}
+                  </div>
+                  <div className="deduction-item">
+                    NSSF : KES {item.social_security}
+                  </div>
+                  <div className="deduction-item">
+                    Affordable housing: KES {item.affordable_housing}
+                  </div>
+                  <div className="deduction-item">
+                    Advance salary: KES: {item.advance_salary}
+                  </div>
+                  <div className="deduction-item">
+                    Other deductions : KES {item.other_deductions}
+                  </div>
+                  <div className="deduction-item">
+                    Total deductions : KES {item.total_deductions}
+                  </div>
+                </div>
+                <div className="section-title">Take home</div>
+                <div className="net-pay">
+                  <div className="net-item">
+                    Take home: KES {item.net_salary}
+                  </div>
+                </div>
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        </>
       </div>
     </>
   );
