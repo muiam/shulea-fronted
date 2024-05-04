@@ -131,6 +131,8 @@ function MyPaySlips() {
             gap: "20px",
             height: "100px",
             marginTop: "20px",
+            backgroundColor: "green",
+            marginRight: "20px",
           }}
         >
           {payslips.map((payslip) => (
@@ -141,7 +143,6 @@ function MyPaySlips() {
                 borderRadius: "8px",
                 padding: "10px",
                 position: "relative",
-                marginRight: "10px",
               }}
             >
               <div
