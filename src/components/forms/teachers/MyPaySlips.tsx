@@ -120,7 +120,7 @@ function MyPaySlips() {
               borderRadius: "5px",
             }}
           >
-            <h2 style={{ margin: "20px" }}>Total: KES {paySlipsTotal}</h2>
+            <h2 style={{ margin: "20px" }}>KES {paySlipsTotal}</h2>
           </div>
         </div>
         <div
