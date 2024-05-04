@@ -1022,6 +1022,13 @@ select option :checked {
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;
   }
+  #my-payslips-container {
+    background-color: black;
+    margin-right: 0;
+  }
+  #my-payslips-card {
+    width: inherit;
+  }
 }
 
 .perfomance-container {

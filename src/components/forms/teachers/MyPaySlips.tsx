@@ -125,19 +125,19 @@ function MyPaySlips() {
         </div>
         <div
           className="payslip-container"
+          id="my-payslips-container"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             gap: "20px",
             height: "100px",
             marginTop: "20px",
-            backgroundColor: "green",
-            marginRight: "20px",
           }}
         >
           {payslips.map((payslip) => (
             <div
               className="payslip-card"
+              id="my-payslips-card"
               style={{
                 border: "1px solid #ccc",
                 borderRadius: "8px",

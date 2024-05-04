@@ -23,12 +23,9 @@ function Weeks() {
       headers: getHeadersWithAuth(),
     });
     if (response.status == 200) {
-      toast.success("fetch successful");
       let data = await response.json();
 
       setWeekData(data);
-    } else {
-      toast.error("encountered an error");
     }
   };
 

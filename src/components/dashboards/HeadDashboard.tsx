@@ -69,6 +69,9 @@ function HeadDashboard() {
           <a href="/subjects" className="quick-link">
             our subjects
           </a>
+          <a href="/weekly-reports" className="quick-link">
+            reports
+          </a>
           <a href="/levels" className="quick-link">
             grades/levels
           </a>
