@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MainNavbar from "../../menus/MainNavbar";
 import { getHeadersWithAuth, getPrivateUrl } from "../../../app/ApiRequest";
 import { useLocation } from "react-router-dom";
 import ResultsChart from "./ResultsChart";
 import { ToastContainer, toast } from "react-toastify";
+import ReactToPrint from "react-to-print";
 
 interface Level {
   stream?: string;
@@ -45,6 +46,7 @@ function ProgressData() {
   const [previousTotal, setPreviousTotal] = useState<number | null>(null);
   const [percentageChange, setPercentageChange] = useState<number | null>(null);
   const [examWiseTotals, setExamWiseTotals] = useState<ExamWiseTotals>({});
+  const componentRef = useRef(null);
   useEffect(() => {
     fetch(getPrivateUrl("actions/levels"), {
       method: "GET",
@@ -167,7 +169,11 @@ function ProgressData() {
               ))}
             </select>
           </div>
-          <div className="perfomance-container" id="perfomance-container">
+          <div
+            ref={componentRef}
+            className="perfomance-container"
+            id="perfomance-container"
+          >
             <div className="report-form-zone">
               <div className="results-form-table">
                 <table>
@@ -243,6 +249,24 @@ function ProgressData() {
               <ResultsChart examData={examWiseTotals} />
             </div>
           </div>
+          {examResults.length > 0 && (
+            <ReactToPrint
+              trigger={() => (
+                <button
+                  style={{
+                    background: "aqua",
+                    width: "150px",
+                    height: "40px",
+                    marginBottom: "20px",
+                    float: "right",
+                  }}
+                >
+                  print results
+                </button>
+              )}
+              content={() => componentRef.current}
+            />
+          )}
         </div>
       </div>
     </>

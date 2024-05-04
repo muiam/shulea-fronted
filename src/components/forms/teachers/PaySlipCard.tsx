@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import MainNavbar from "../../menus/MainNavbar";
 import { getHeadersWithAuth, getPrivateUrl } from "../../../app/ApiRequest";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ReactToPrint } from "react-to-print";
 
 interface Payslip {
   id: number;
@@ -30,6 +31,7 @@ interface Payslip {
 function PayslipCard({}) {
   const params = useParams<{ id: string }>();
   const [payslips, setPayslips] = useState<Payslip[]>([]);
+  const componentRef = useRef(null);
 
   useEffect(() => {
     fetchPayslipData();
@@ -55,6 +57,7 @@ function PayslipCard({}) {
       console.error("Error fetching payslip data:", error);
     }
   };
+
   return (
     <>
       <MainNavbar />
@@ -68,98 +71,112 @@ function PayslipCard({}) {
           height: "100vh",
         }}
       >
-        <>
-          <MainNavbar />
-          <div>
-            {payslips.map((item, index) => (
+        <div>
+          {payslips.map((item, index) => (
+            <div
+              ref={componentRef}
+              className="payslip-container-main-one"
+              id="payslip-container-main-one"
+              key={index}
+            >
               <div
-                className="payslip-container-main-one"
-                id="payslip-container-main-one"
-                key={index}
+                className="header"
+                id="header"
+                style={{ display: "flex", borderBottom: "1px solid aqua" }}
               >
-                <div
-                  className="header"
-                  id="header"
-                  style={{ display: "flex", borderBottom: "1px solid aqua" }}
-                >
-                  <h1>Payslip</h1>
-                  {item.paid ? (
-                    <span style={{ color: "green" }}>paid</span>
-                  ) : (
-                    <span style={{ color: "red" }}>unpaid</span>
-                  )}
-                </div>
-                {item.description && (
-                  <div className="">
-                    <div className="section-title" id="section-title">
-                      Description
-                    </div>
-                    <div className="description-section">
-                      <p>
-                        This payslip provides a detailed breakdown of your
-                        earnings and deductions for the pay period ending April
-                        2024. It includes your basic salary, overtime pay,
-                        bonuses, income tax, health insurance, retirement fund
-                        contributions, and your net pay. Please review all
-                        details carefully.
-                      </p>
-                    </div>
-                  </div>
+                <h1>Payslip</h1>
+                {item.paid ? (
+                  <span style={{ color: "green" }}>paid</span>
+                ) : (
+                  <span style={{ color: "red" }}>unpaid</span>
                 )}
+              </div>
+              {item.description && (
+                <div className="">
+                  <div className="section-title" id="section-title">
+                    Description
+                  </div>
+                  <div className="description-section">
+                    <p>
+                      This payslip provides a detailed breakdown of your
+                      earnings and deductions for the pay period ending April
+                      2024. It includes your basic salary, overtime pay,
+                      bonuses, income tax, health insurance, retirement fund
+                      contributions, and your net pay. Please review all details
+                      carefully.
+                    </p>
+                  </div>
+                </div>
+              )}
 
-                <div className="section-title">Employee Details</div>
-                <div className="details" id="details">
-                  <div className="detail-item">
-                    Name: {item.first_name + " " + item.last_name}
-                  </div>
-                  <div className="detail-item">
-                    Employee ID: {item.employeeID}
-                  </div>
-                  <div className="detail-item">
-                    period: {item.month_name + " " + item.year_name}
-                  </div>
+              <div className="section-title">Employee Details</div>
+              <div className="details" id="details">
+                <div className="detail-item">
+                  Name: {item.first_name + " " + item.last_name}
                 </div>
-                <div className="section-title">Earnings</div>
-                <div className="earnings" id="earnings">
-                  <div className="earning-item">
-                    Basic Salary: KES {item.gross_salary}
-                  </div>
-                  <div className="earning-item">
-                    Total Allowances : KES {item.total_allowances}
-                  </div>
+                <div className="detail-item">
+                  Employee ID: {item.employeeID}
                 </div>
-                <div className="section-title">Deductions</div>
-                <div className="deductions" id="deductions">
-                  <div className="deduction-item">Tax: KES {item.tax}</div>
-                  <div className="deduction-item">
-                    Health Insurance: KES: {item.health_insurance}
-                  </div>
-                  <div className="deduction-item">
-                    NSSF : KES {item.social_security}
-                  </div>
-                  <div className="deduction-item">
-                    Affordable housing: KES {item.affordable_housing}
-                  </div>
-                  <div className="deduction-item">
-                    Advance salary: KES: {item.advance_salary}
-                  </div>
-                  <div className="deduction-item">
-                    Other deductions : KES {item.other_deductions}
-                  </div>
-                  <div className="deduction-item">
-                    Total deductions : KES {item.total_deductions}
-                  </div>
-                </div>
-                <div className="section-title">Take home</div>
-                <div className="net-pay">
-                  <div className="net-item">
-                    Take home: KES {item.net_salary}
-                  </div>
+                <div className="detail-item">
+                  period: {item.month_name + " " + item.year_name}
                 </div>
               </div>
-            ))}
-          </div>
-        </>
+              <div className="section-title">Earnings</div>
+              <div className="earnings" id="earnings">
+                <div className="earning-item">
+                  Basic Salary: KES {item.gross_salary}
+                </div>
+                <div className="earning-item">
+                  Total Allowances : KES {item.total_allowances}
+                </div>
+              </div>
+              <div className="section-title">Deductions</div>
+              <div className="deductions" id="deductions">
+                <div className="deduction-item">Tax: KES {item.tax}</div>
+                <div className="deduction-item">
+                  Health Insurance: KES: {item.health_insurance}
+                </div>
+                <div className="deduction-item">
+                  NSSF : KES {item.social_security}
+                </div>
+                <div className="deduction-item">
+                  Affordable housing: KES {item.affordable_housing}
+                </div>
+                <div className="deduction-item">
+                  Advance salary: KES: {item.advance_salary}
+                </div>
+                <div className="deduction-item">
+                  Other deductions : KES {item.other_deductions}
+                </div>
+                <div className="deduction-item">
+                  Total deductions : KES {item.total_deductions}
+                </div>
+              </div>
+              <div className="section-title">Take home</div>
+              <div className="net-pay">
+                <div className="net-item">Take home: KES {item.net_salary}</div>
+              </div>
+            </div>
+          ))}
+          {payslips.length > 0 && (
+            <ReactToPrint
+              trigger={() => (
+                <button
+                  style={{
+                    background: "aqua",
+                    width: "150px",
+                    height: "40px",
+                    marginBottom: "20px",
+                    float: "right",
+                  }}
+                >
+                  print payslip
+                </button>
+              )}
+              content={() => componentRef.current}
+            />
+          )}
+        </div>
       </div>
     </>
   );
