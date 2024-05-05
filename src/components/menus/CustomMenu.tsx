@@ -49,38 +49,36 @@ export function TeacherMenu() {
             <span className="nav-item">My payslips</span>
           </a>
         </li>
+
         <li>
-          <li>
-            <a
-              href="/all/my/updates"
-              style={{
-                position: "relative",
-                display: "inline-block",
-                backgroundColor: "blue",
-              }}
-            >
-              <i className="fa-solid fa-bell">
-                {unreadCount > 0 && (
-                  <span
-                    className="unread-count"
-                    style={{
-                      backgroundColor: "#fa3e3e",
-                      borderRadius: "50PX",
-                      color: "white",
-                      padding: "2px 3px",
-                      fontSize: "15px",
-                      position: "absolute",
-                      bottom: "70%",
-                      left: "20%",
-                    }}
-                  >
-                    {unreadCount > 9 ? "9+" : unreadCount}
-                  </span>
-                )}
-              </i>
-              <span className="nav-item">Updates</span>
-            </a>
-          </li>
+          <a
+            href="/all/my/updates"
+            style={{
+              position: "relative",
+              display: "inline-block",
+            }}
+          >
+            <i className="fa-solid fa-bell">
+              {unreadCount > 0 && (
+                <span
+                  className="unread-count"
+                  style={{
+                    backgroundColor: "#fa3e3e",
+                    borderRadius: "50PX",
+                    color: "white",
+                    padding: "2px 3px",
+                    fontSize: "15px",
+                    position: "absolute",
+                    bottom: "70%",
+                    left: "50%",
+                  }}
+                >
+                  {unreadCount > 9 ? "9+" : unreadCount}
+                </span>
+              )}
+            </i>
+            <span className="nav-item">Updates</span>
+          </a>
         </li>
 
         <li>
@@ -152,23 +150,24 @@ export function HeadTeacherMenu() {
         <li>
           <a
             href="/all/my/updates"
-            style={{ position: "relative", display: "inline-block" }}
+            style={{
+              position: "relative",
+              display: "inline-block",
+            }}
           >
             <i className="fa-solid fa-bell">
               {unreadCount > 0 && (
                 <span
                   className="unread-count"
                   style={{
-                    position: "absolute",
-                    top: "-8px",
-                    right: "0px",
-                    minWidth: "16px",
-                    height: "20px",
-                    lineHeight: "20px",
-                    textAlign: "center",
-                    borderRadius: "50%",
+                    backgroundColor: "#fa3e3e",
+                    borderRadius: "50PX",
                     color: "white",
-                    backgroundColor: "red",
+                    padding: "2px 3px",
+                    fontSize: "15px",
+                    position: "absolute",
+                    bottom: "70%",
+                    left: "50%",
                   }}
                 >
                   {unreadCount > 9 ? "9+" : unreadCount}
@@ -234,23 +233,24 @@ export function ParentMenu() {
         <li>
           <a
             href="/all/my/updates"
-            style={{ position: "relative", display: "inline-block" }}
+            style={{
+              position: "relative",
+              display: "inline-block",
+            }}
           >
             <i className="fa-solid fa-bell">
               {unreadCount > 0 && (
                 <span
                   className="unread-count"
                   style={{
-                    position: "absolute",
-                    top: "-8px",
-                    right: "0px",
-                    minWidth: "16px",
-                    height: "20px",
-                    lineHeight: "20px",
-                    textAlign: "center",
-                    borderRadius: "50%",
+                    backgroundColor: "#fa3e3e",
+                    borderRadius: "50PX",
                     color: "white",
-                    backgroundColor: "red",
+                    padding: "2px 3px",
+                    fontSize: "15px",
+                    position: "absolute",
+                    bottom: "70%",
+                    left: "50%",
                   }}
                 >
                   {unreadCount > 9 ? "9+" : unreadCount}
@@ -260,7 +260,6 @@ export function ParentMenu() {
             <span className="nav-item">Updates</span>
           </a>
         </li>
-
         <li>
           <a onClick={handLogout} className="logout">
             <i className="fa-solid fa-sign-out"></i>
@@ -317,23 +316,24 @@ export function AccountantMenu() {
         <li>
           <a
             href="/all/my/updates"
-            style={{ position: "relative", display: "inline-block" }}
+            style={{
+              position: "relative",
+              display: "inline-block",
+            }}
           >
             <i className="fa-solid fa-bell">
               {unreadCount > 0 && (
                 <span
                   className="unread-count"
                   style={{
-                    position: "absolute",
-                    top: "-8px",
-                    right: "0px",
-                    minWidth: "16px",
-                    height: "20px",
-                    lineHeight: "20px",
-                    textAlign: "center",
-                    borderRadius: "50%",
+                    backgroundColor: "#fa3e3e",
+                    borderRadius: "50PX",
                     color: "white",
-                    backgroundColor: "red",
+                    padding: "2px 3px",
+                    fontSize: "15px",
+                    position: "absolute",
+                    bottom: "70%",
+                    left: "50%",
                   }}
                 >
                   {unreadCount > 9 ? "9+" : unreadCount}
@@ -343,7 +343,6 @@ export function AccountantMenu() {
             <span className="nav-item">Updates</span>
           </a>
         </li>
-
         <li>
           <a onClick={handLogout} className="logout">
             <i className="fa-solid fa-sign-out"></i>
