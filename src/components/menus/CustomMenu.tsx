@@ -70,7 +70,7 @@ export function TeacherMenu() {
                       fontSize: "15px",
                       position: "absolute",
                       bottom: "70%",
-                      left: "50%",
+                      left: "20%",
                     }}
                   >
                     {unreadCount > 9 ? "9+" : unreadCount}
