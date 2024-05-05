@@ -56,6 +56,7 @@ export function TeacherMenu() {
               style={{
                 position: "relative",
                 display: "inline-block",
+                backgroundColor: "blue",
               }}
             >
               <i className="fa-solid fa-bell">
