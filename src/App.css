@@ -281,6 +281,7 @@ nav:hover {
   display: flex;
   width: calc(100% - 10px);
   gap: 10px;
+  font-size: 20px;
 }
 .head-dashboard-container {
   height: 100px;

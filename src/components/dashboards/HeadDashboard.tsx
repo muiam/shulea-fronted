@@ -52,50 +52,50 @@ function HeadDashboard() {
         </div>
       </div>
       <div className="quick-links">
-        <p>Quick Navigation</p>
+        <h3>Quick Navigation</h3>
         <div className="quick-links-container">
           <a href="/teachers" className="quick-link">
-            teachers
+            Teachers
           </a>
           <a href="/parents" className="quick-link">
-            parents
+            Parents
           </a>
           <a href="/students" className="quick-link">
-            students
+            Students
           </a>
           <a href="/" className="quick-link">
-            accountants
+            Accountants
           </a>
           <a href="/subjects" className="quick-link">
-            our subjects
+            Our subjects
           </a>
           <a href="/weekly-reports" className="quick-link">
-            reports
+            Reports
           </a>
           <a href="/levels" className="quick-link">
-            grades/levels
+            Grades/levels
           </a>
           <a href="/" className="quick-link">
             Academic years
           </a>
           <a href="/" className="quick-link">
-            terms
+            Terms
           </a>
           <a href="/" className="quick-link">
-            exams
+            Exams
           </a>
           <a href="/all/my/updates" className="quick-link">
-            updates
+            Updates
           </a>
           <a href="/change/password" className="quick-link">
-            reset password
+            Reset password
           </a>
           <a
             href="/"
             className="quick-link"
             onClick={() => dispatch(logout(), navigate("/"))}
           >
-            logout
+            Logout
           </a>
         </div>
       </div>

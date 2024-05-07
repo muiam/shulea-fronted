@@ -48,13 +48,13 @@ function TeacherDashBoard() {
         </div>
       </div>
       <div className="quick-links">
-        <p>Quick Navigation</p>
+        <h3>Quick Navigation</h3>
         <div className="quick-links-container">
           <a href="/my-subjects" className="quick-link">
-            enter marks
+            Enter marks
           </a>
           <a href="/year-exam" className="quick-link">
-            view Ranks
+            View Ranks
           </a>
           <a href="/students-progress" className="quick-link">
             Track progress
@@ -66,17 +66,17 @@ function TeacherDashBoard() {
             Payslips
           </a>
           <a href="/all/my/updates" className="quick-link">
-            updates
+            Updates
           </a>
           <a href="/change/password" className="quick-link">
-            reset password
+            Reset password
           </a>
           <a
             href="/"
             className="quick-link"
             onClick={() => dispatch(logout(), navigate("/"))}
           >
-            logout
+            Logout
           </a>
         </div>
       </div>
