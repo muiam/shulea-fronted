@@ -562,6 +562,9 @@ nav:hover {
     margin-top: 500px;
     margin-bottom: 0;
   }
+  #select-sort-ledger-data {
+    background-color: red;
+  }
 }
 .revenue-input-container {
   position: relative;

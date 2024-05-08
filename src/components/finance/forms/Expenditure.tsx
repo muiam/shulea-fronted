@@ -4,6 +4,11 @@ import MainNavbar from "../../menus/MainNavbar";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
+interface ExpenditureItem {
+  id: number;
+  name: string;
+}
+
 function Expenditure() {
   const [receiptNo, setReceiptNo] = useState<number>(0);
   const [description, setDescription] = useState("");
@@ -11,11 +16,36 @@ function Expenditure() {
   const [amount, setAmount] = useState<number>(0);
   const [ledgerNewBalance, setNewLedgerBalance] = useState<number>(0);
   const [ledgerCurrentBalance, setCurrentLedgerBalance] = useState<number>(0);
+  const [ExpenditureItem, setExpenditureItems] = useState<ExpenditureItem[]>(
+    []
+  );
+  const [selectedExpenditure, setSelectedExpenditure] = useState<number>(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     ledgerData();
-  });
+    getExpenditureItems();
+  }, []);
+
+  const handleExpenditureChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedExpenditure = Number(e.target.value);
+    setSelectedExpenditure(selectedExpenditure);
+  };
+
+  const getExpenditureItems = async () => {
+    let response = await fetch(
+      getPrivateUrl(`actions/all/financials/items/expense`),
+      {
+        method: "GET",
+        headers: getHeadersWithAuth(),
+      }
+    );
+    if (response.status == 200) {
+      let data = await response.json();
+      setExpenditureItems(data);
+    }
+  };
+
   const generateReceiptNo = async () => {
     let response = await fetch(
       getPrivateUrl(`all/financial/our/school/generate/receipt/`),
@@ -42,15 +72,17 @@ function Expenditure() {
           amount: amount,
           description: description,
           receipt_number: receiptNo,
+          ExpenditureItem: selectedExpenditure,
         }),
       }
     );
     if (response.status == 201) {
       toast.success("expenditure created");
       navigate("/ledger");
+    } else if (response.status == 403) {
+      toast.error("all inputs are mandatory");
     } else {
-      toast.error("failed to created expenditure");
-      navigate("/ledger");
+      toast.error("failed to record");
     }
   };
   const ledgerData = async () => {
@@ -88,6 +120,7 @@ function Expenditure() {
               style={{ display: "flex", maxWidth: "100%" }}
             >
               <input
+                required
                 autoComplete="off"
                 id="revenue-enter"
                 className="revenue-enter"
@@ -113,6 +146,7 @@ function Expenditure() {
                 id="revenue-input-container"
               >
                 <input
+                  required
                   value={receiptNo || ""}
                   onChange={(e) => {
                     const newValue: number | null = parseFloat(e.target.value);
@@ -152,8 +186,26 @@ function Expenditure() {
                   Generate
                 </button>
               </div>
+              <select
+                onChange={handleExpenditureChange}
+                required
+                className="revenue-enter"
+                id="revenue-enter"
+                style={{
+                  marginLeft: "5px",
+                  marginRight: "5px",
+                }}
+              >
+                <option disabled>select heading</option>
+                {ExpenditureItem.map((item, index) => (
+                  <option key={index} value={item.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
 
               <input
+                required
                 autoComplete="off"
                 className="revenue-enter"
                 id="revenue-enter"
