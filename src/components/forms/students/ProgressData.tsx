@@ -47,6 +47,8 @@ function ProgressData() {
   const [percentageChange, setPercentageChange] = useState<number | null>(null);
   const [examWiseTotals, setExamWiseTotals] = useState<ExamWiseTotals>({});
   const componentRef = useRef(null);
+  const [studentCurrentLevel, setStudentCurrentLevel] = useState<number>(0);
+  const [resultsLevel, setResultsLevel] = useState<number>(0);
   useEffect(() => {
     fetch(getPrivateUrl("actions/levels"), {
       method: "GET",
@@ -65,13 +67,10 @@ function ProgressData() {
   useEffect(() => {
     const getStudents = async () => {
       if (selectedLevelId !== null) {
-        let response = await fetch(
-          getPrivateUrl(`students/level/${selectedLevelId}`),
-          {
-            method: "GET",
-            headers: getHeadersWithAuth(),
-          }
-        );
+        let response = await fetch(getPrivateUrl(`actions/student/all`), {
+          method: "GET",
+          headers: getHeadersWithAuth(),
+        });
         if (response.status === 200) {
           let data = await response.json();
           setStudents(data);
@@ -106,10 +105,12 @@ function ProgressData() {
           setSchoolName(data.exam_results[0].school_name);
           setStudentName(data.exam_results[0].student_name);
           setGradeLevel(data.exam_results[0].level_name);
+          setResultsLevel(data.exam_results[0].level);
           setPreviousTotal(data.previous_total_marks);
           setPercentageChange(data.percentage_change);
           setExamName(data.exam_results[0].exam_name);
           setExamWiseTotals(data.exam_wise_totals);
+          setStudentCurrentLevel(data.student_current_grade);
         } else {
           toast.error(
             "there was an error causing this failure. Contact your school"
@@ -236,6 +237,11 @@ function ProgressData() {
                 <p>{schoolName}</p>
                 <p>{examName}</p>
                 <p>{studentName}</p>&nbsp;<h2>GRADE : {gradeLevel}</h2>
+                {studentCurrentLevel === resultsLevel ? (
+                  <p>This is student current level</p>
+                ) : (
+                  <p>Not current level</p>
+                )}
               </div>
               <h2
                 style={{
