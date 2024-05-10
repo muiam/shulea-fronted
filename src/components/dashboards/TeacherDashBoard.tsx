@@ -30,7 +30,7 @@ function TeacherDashBoard() {
       let data = await response.json();
       setSubjects(data.subjects);
       setReports(data.reports);
-      setTotal(data.total_earned.total);
+      setTotal(data.total_earned);
     }
   };
   return (

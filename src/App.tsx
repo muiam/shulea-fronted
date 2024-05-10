@@ -53,6 +53,7 @@ import PasswordReset from "./components/auth/PasswordReset";
 import RequestPasswordReset from "./components/./auth/RequestPasswordReset";
 import LevelList from "./components/LevelsList";
 import NewLevel from "./components/forms/levels/NewLevel";
+import LedgerInsights from "./components/finance/forms/LedgerInsights";
 
 interface props {
   children?: ReactNode;
@@ -475,6 +476,7 @@ function App() {
               </ParentRoute>
             }
           />
+
           <Route
             path="/my/kid/reports"
             element={
@@ -530,6 +532,22 @@ function App() {
               <HeadTeacherRoute>
                 <NewLevel />
               </HeadTeacherRoute>
+            }
+          />
+          <Route
+            path="/more/insights/:from/:to"
+            element={
+              <FinanceRoute>
+                <LedgerInsights />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/more/insights/"
+            element={
+              <FinanceRoute>
+                <LedgerInsights />
+              </FinanceRoute>
             }
           />
           <Route path="/reset-password/confirm" element={<PasswordReset />} />

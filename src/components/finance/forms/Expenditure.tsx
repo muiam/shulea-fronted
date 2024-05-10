@@ -115,6 +115,10 @@ function Expenditure() {
             className=""
             style={{ display: "flex", flexDirection: "column" }}
           >
+            <p style={{ marginLeft: "10px", marginBottom: "10px" }}>
+              A debit serves as an expenditure and deducts the amount from the
+              ledger balance
+            </p>
             <form
               className="form-ledger-flex"
               style={{ display: "flex", maxWidth: "100%" }}

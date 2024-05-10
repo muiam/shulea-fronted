@@ -20,16 +20,63 @@ function Ledger() {
   const [revenue, setLedgerRevenue] = useState<number>(0);
   const [expenditure, setLedgerExpenditure] = useState<number>(0);
   const [balance, setLedgerBalance] = useState<number>(0);
+  const [dates, setDates] = useState<string[]>([]);
+  const [fromDate, setFromDate] = useState<string>("");
+  const [toDate, setToDate] = useState<string>("");
   const navigate = useNavigate();
   const componentRef = useRef(null);
 
   useEffect(() => {
-    ledgerData();
+    ledgerDates();
   }, []);
 
+  useEffect(() => {
+    ledgerData();
+  }, [toDate]);
+
   const ledgerData = async () => {
+    if (fromDate && toDate) {
+      let response = await fetch(
+        getPrivateUrl(
+          `all/financial/our/school/transactions/${fromDate}/${toDate}`
+        ),
+        {
+          method: "GET",
+          headers: getHeadersWithAuth(),
+        }
+      );
+      if (response.status == 200) {
+        let data = await response.json();
+        setLedgerData(data.transactions);
+        setLedgerRevenue(data.revenue_sum);
+        setLedgerExpenditure(data.expenditure_sum);
+        setLedgerBalance(data.balance);
+      } else {
+        toast.error("process failed");
+      }
+    } else {
+      let response = await fetch(
+        getPrivateUrl(`all/financial/our/school/transactions/`),
+        {
+          method: "GET",
+          headers: getHeadersWithAuth(),
+        }
+      );
+      if (response.status == 200) {
+        let data = await response.json();
+        setLedgerData(data.transactions);
+        setLedgerRevenue(data.revenue_sum);
+        setLedgerExpenditure(data.expenditure_sum);
+        setLedgerBalance(data.balance);
+      } else {
+        toast.error("process failed");
+      }
+    }
+  };
+
+  const ledgerDates = async () => {
     let response = await fetch(
-      getPrivateUrl(`all/financial/our/school/transactions/`),
+      getPrivateUrl(`all/financials/our/school/ledger/items/sort/ranges/dates`),
       {
         method: "GET",
         headers: getHeadersWithAuth(),
@@ -37,14 +84,21 @@ function Ledger() {
     );
     if (response.status == 200) {
       let data = await response.json();
-      setLedgerData(data.transactions);
-      setLedgerRevenue(data.revenue_sum);
-      setLedgerExpenditure(data.expenditure_sum);
-      setLedgerBalance(data.balance);
+      setDates(data.all_transaction_dates);
     } else {
       toast.error("process failed");
     }
   };
+  const handleFromDateChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setFromDate(event.target.value);
+  };
+
+  const handleToDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setToDate(event.target.value);
+  };
+
   const handleRevenue = () => {
     navigate("/new/revenue");
   };
@@ -85,7 +139,7 @@ function Ledger() {
                 borderRadius: "6px",
               }}
             >
-              <p style={{ margin: "10px" }}>Revenue : KES {revenue}</p>
+              <p style={{ margin: "10px" }}>Revenue: KES {revenue}</p>
             </div>
             <div
               className=""
@@ -100,8 +154,9 @@ function Ledger() {
                 borderRadius: "6px",
               }}
             >
-              <p style={{ margin: "10px" }}>Expenditure KES {expenditure}</p>
+              <p style={{ margin: "10px" }}>Expenditure: KES {expenditure}</p>
             </div>
+
             <div
               className=""
               style={{
@@ -115,20 +170,39 @@ function Ledger() {
                 borderRadius: "6px",
               }}
             >
-              <p style={{ margin: "10px" }}>Balance KES {balance}</p>
+              <p style={{ margin: "10px" }}>Balance: KES {balance}</p>
             </div>
           </div>
 
           <div className="ledger-btns" id="ledger-btns">
-            <div className="new-payroll" id="new-payroll">
+            <div className="" style={{ display: "flex", gap: "5px" }}>
               <select
-                name=""
-                className="select-filter-items"
-                id="select-sort-ledger-data"
-                style={{ height: "100%", width: "100%" }}
+                style={{ background: "aqua" }}
+                onChange={handleFromDateChange}
+                value={fromDate || ""}
               >
-                <option>from</option>
-                <option>10/1/2024</option>
+                <option disabled value="">
+                  from date?
+                </option>
+                {dates.map((date, index) => (
+                  <option key={index} value={date}>
+                    {new Date(date).toLocaleDateString()}
+                  </option>
+                ))}
+              </select>
+              <select
+                style={{ background: "aqua" }}
+                onChange={handleToDateChange}
+                value={toDate || ""}
+              >
+                <option disabled value="">
+                  to date?
+                </option>
+                {dates.map((date, index) => (
+                  <option key={index} value={date}>
+                    {new Date(date).toLocaleDateString()}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="new-payroll" id="new-payroll">
@@ -164,49 +238,58 @@ function Ledger() {
                 </tr>
               ))}
               <tr>
-                <td colSpan={5} align="right">
-                  <strong>Total Expenditure:</strong>
-                </td>
-                <td>
-                  <strong>KES {expenditure}</strong>
-                </td>
-              </tr>
-              <tr>
-                <td colSpan={5} align="right">
-                  <strong>Total Revenue:</strong>
-                </td>
-                <td>
-                  <strong>KES {revenue}</strong>
-                </td>
-              </tr>
-              <tr>
-                <td colSpan={5} align="right">
-                  <strong>Balance:</strong>
-                </td>
-                <td>
-                  <strong>KES {balance}</strong>
+                <td colSpan={5} align="left">
+                  <div className="" style={{ display: "flex", gap: "10px" }}>
+                    <h3> Total Expenditure : KES {expenditure}</h3>
+                    <h3> Total Revenue : KES {revenue}</h3>
+                    <h3> Ledger Balance : KES {balance}</h3>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         {ledger.length > 0 && (
-          <ReactToPrint
-            trigger={() => (
+          <div className="" style={{ display: "flex" }}>
+            {fromDate && toDate ? (
               <button
+                onClick={() => navigate(`/more/insights/${fromDate}/${toDate}`)}
                 style={{
-                  background: "aqua",
-                  width: "100px",
-                  float: "right",
+                  border: "2px solid aqua",
                   marginRight: "10px",
                   height: "50px",
                 }}
               >
-                print
+                insights
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate(`/more/insights/`)}
+                style={{
+                  border: "2px solid aqua",
+                  marginRight: "10px",
+                  height: "50px",
+                }}
+              >
+                insights
               </button>
             )}
-            content={() => componentRef.current}
-          />
+
+            <ReactToPrint
+              trigger={() => (
+                <button
+                  style={{
+                    border: "2px solid aqua",
+                    marginRight: "10px",
+                    height: "50px",
+                  }}
+                >
+                  print
+                </button>
+              )}
+              content={() => componentRef.current}
+            />
+          </div>
         )}
       </div>
     </>

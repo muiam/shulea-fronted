@@ -36,7 +36,6 @@ function FeePaidList() {
       }
     );
     if (response.status == 200) {
-      toast.success("success");
       let data = await response.json();
       setFeeData(data.student_balances);
       console.log(data.totals["expected_amount"]);

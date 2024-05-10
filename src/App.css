@@ -565,6 +565,24 @@ nav:hover {
   #select-sort-ledger-data {
     background-color: red;
   }
+  .ledger-insights-container {
+    flex-direction: column;
+  }
+  .diplay-insights-charts-flex-zone {
+    flex-direction: column;
+  }
+}
+.ledger-insights-container {
+  display: flex;
+  height: calc(100% - 20px);
+  width: 100%;
+  margin-top: 20px;
+}
+.right-flex {
+  flex: 1;
+}
+.left-flex {
+  flex: 1;
 }
 .revenue-input-container {
   position: relative;
@@ -922,9 +940,11 @@ select option :checked {
 }
 .new-payroll {
   background-color: aqua;
-  width: 150px;
+  width: 100px;
   flex: 1;
   margin-right: 10px;
+  margin-left: 10px;
+  text-align: center;
 }
 
 /* Styling for the list container */
