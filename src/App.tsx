@@ -54,6 +54,11 @@ import RequestPasswordReset from "./components/./auth/RequestPasswordReset";
 import LevelList from "./components/LevelsList";
 import NewLevel from "./components/forms/levels/NewLevel";
 import LedgerInsights from "./components/finance/forms/LedgerInsights";
+import PayableBills from "./components/finance/forms/PayableBills";
+import BilledList from "./components/finance/forms/BilledList";
+import BillStudentForm from "./components/finance/forms/BillStudentForm";
+import BillPaymentList from "./components/finance/forms/BillPaymentList";
+import NewBillForm from "./components/finance/forms/NewBillForm";
 
 interface props {
   children?: ReactNode;
@@ -535,7 +540,7 @@ function App() {
             }
           />
           <Route
-            path="/more/insights/:from/:to"
+            path="/more/insights/:from/:to/"
             element={
               <FinanceRoute>
                 <LedgerInsights />
@@ -547,6 +552,46 @@ function App() {
             element={
               <FinanceRoute>
                 <LedgerInsights />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/billing/"
+            element={
+              <FinanceRoute>
+                <PayableBills />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/billed/:billId/"
+            element={
+              <FinanceRoute>
+                <BilledList />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/bill/students/:billId"
+            element={
+              <FinanceRoute>
+                <BillStudentForm />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/billing/payment-list/:billId"
+            element={
+              <FinanceRoute>
+                <BillPaymentList />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/billing/new/"
+            element={
+              <FinanceRoute>
+                <NewBillForm />
               </FinanceRoute>
             }
           />

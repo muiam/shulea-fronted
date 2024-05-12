@@ -29,12 +29,12 @@ function LedgerInsights() {
 
   useEffect(() => {
     fetchLedgerInsights();
-  });
+  }, []);
   const fetchLedgerInsights = async () => {
-    if (params.fromDate && params.toDate) {
+    if (params.from && params.to) {
       let response = await fetch(
         getPrivateUrl(
-          `all/financials/our/school/ledger/items/stats/${params.fromDate}/${params.toDate}`
+          `all/financials/our/school/ledger/items/stats/${params.from}/${params.to}`
         ),
         {
           method: "GET",

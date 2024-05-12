@@ -260,7 +260,7 @@ function Ledger() {
                   height: "50px",
                 }}
               >
-                insights
+                insights with dates
               </button>
             ) : (
               <button

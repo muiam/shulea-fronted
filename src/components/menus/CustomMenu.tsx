@@ -314,6 +314,12 @@ export function AccountantMenu() {
           </a>
         </li>
         <li>
+          <a href="/billing">
+            <i className="fa-solid fa-money-bills"></i>
+            <span className="nav-item">Billing</span>
+          </a>
+        </li>
+        <li>
           <a
             href="/all/my/updates"
             style={{

@@ -152,7 +152,6 @@ function QueryStudent() {
       const updatedStudents = studentMarks.filter(
         (student) => !updatedStudentIds.includes(student.id)
       );
-      console.log("unupdated", updatedStudents);
       setStudentMarks(updatedStudents);
     } else {
       toast.error("Failed to add marks");
