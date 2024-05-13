@@ -11,7 +11,7 @@ if (!container) {
 }
 const root = createRoot(container);
 
-ReactGA.initialize("G-G3PFZTZVV0");
+ReactGA.initialize("G-95H26PWCVK");
 ReactGA.send({ hitType: "pageview", page: window.location.pathname });
 root.render(
   <React.StrictMode>
