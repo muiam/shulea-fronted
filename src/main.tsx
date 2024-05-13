@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import App from "./App";
 import { store } from "./app/store"; // import your store and persistor
 import { createRoot } from "react-dom/client";
+import ReactGA from "react-ga4";
 
 const container = document.getElementById("root");
 if (!container) {
@@ -10,6 +11,8 @@ if (!container) {
 }
 const root = createRoot(container);
 
+ReactGA.initialize("G-G3PFZTZVV0");
+ReactGA.send({ hitType: "pageview", page: window.location.pathname });
 root.render(
   <React.StrictMode>
     <Provider store={store}>
