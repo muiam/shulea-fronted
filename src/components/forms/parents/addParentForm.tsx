@@ -45,7 +45,6 @@ const AddParentForm = () => {
           <h2>Proceed to admit a parent</h2>
           <form action="" className="new-record-form">
             <div className="add-form">
-              <label htmlFor="email">Email</label>
               <input
                 type="text"
                 value={email}
@@ -56,7 +55,6 @@ const AddParentForm = () => {
               />
             </div>
             <div className="add-form">
-              <label htmlFor="first_name">First Name</label>
               <input
                 type="text"
                 value={firstName}
@@ -68,7 +66,6 @@ const AddParentForm = () => {
             </div>
 
             <div className="add-form">
-              <label htmlFor="last_name">Last Name</label>
               <input
                 type="text"
                 value={lastName}
@@ -80,7 +77,6 @@ const AddParentForm = () => {
             </div>
 
             <div className="add-form">
-              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 value={password}
@@ -90,19 +86,12 @@ const AddParentForm = () => {
                 className="add-input"
               />
             </div>
-
-            <button className="add-record-btn" onClick={handleNewParent}>
-              save
-            </button>
+            <div className="add-form">
+              <button className="add-record-btn" onClick={handleNewParent}>
+                save
+              </button>
+            </div>
           </form>
-
-          {/* <details>
-              <p>
-                We shall email the above email the login credentials . Please
-                advise your teachers to always change their passwords on first
-                time login
-              </p>
-            </details> */}
         </div>
       </div>
     </>

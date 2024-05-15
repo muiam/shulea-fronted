@@ -86,7 +86,11 @@ function AddSubjectForm() {
       <ToastContainer />
       <div className="app-content-start">
         <div className="add-start">
-          <form action="" className="new-record-form" onSubmit={handleSubmit}>
+          <form
+            action=""
+            className="new-record-form-flex"
+            onSubmit={handleSubmit}
+          >
             <div className="add-form">
               <label htmlFor="name">Subject</label>
               <input
