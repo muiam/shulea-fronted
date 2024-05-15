@@ -39,6 +39,13 @@ function loginComponent() {
         password: password,
       }),
     });
+    setLoading(false);
+    if (email == "") {
+      toast.error("email is a required field");
+    }
+    if (password == "") {
+      toast.error("password is required");
+    }
     if (response.status == 401) {
       toast.error("Invalid user credentials or user inactive");
     } else if (response.status == 400) {
@@ -62,7 +69,6 @@ function loginComponent() {
     } else {
       toast.error("unknown error occured, please contact your school");
     }
-    setLoading(false);
   };
 
   const styles = {
@@ -240,7 +246,16 @@ function loginComponent() {
                   height: "50px",
                 }}
               >
-                {loading == true ? "Loading" : "Login"}
+                {loading ? (
+                  <div
+                    className="loader"
+                    style={{ width: "50px", height: "50px" }}
+                  >
+                    <div className="loading"></div>
+                  </div>
+                ) : (
+                  "login"
+                )}
               </button>
             </div>
             <p className="p-or">OR</p>
