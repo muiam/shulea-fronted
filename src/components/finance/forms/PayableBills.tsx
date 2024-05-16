@@ -196,7 +196,7 @@ function PayableBills() {
                         navigate(`/billing/payment-list/${item.id}/`)
                       }
                     >
-                      paid list
+                      check
                     </button>
                   </td>
 
@@ -209,7 +209,7 @@ function PayableBills() {
                       }}
                       onClick={() => navigate(`/billed/${item.id}/`)}
                     >
-                      Billed
+                      check
                     </button>
                   </td>
                   <td>
@@ -221,7 +221,7 @@ function PayableBills() {
                       }}
                       onClick={() => navigate(`/billed/${item.id}/`)}
                     >
-                      statements
+                      check
                     </button>
                   </td>
                 </tr>
