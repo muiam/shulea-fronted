@@ -29,7 +29,6 @@ function loginComponent() {
     e.preventDefault();
     // interact with backend api
     setLoading(true);
-    // "http://127.0.0.1:8000/api/auth/token/
     const response = await fetch(getPrivateUrl(`auth/token/`), {
       method: "POST",
       headers: getHeadersWithAuth(),
@@ -42,32 +41,36 @@ function loginComponent() {
     setLoading(false);
     if (email == "") {
       toast.error("email is a required field");
-    }
-    if (password == "") {
+    } else if (password == "") {
       toast.error("password is required");
-    }
-    if (response.status == 401) {
-      toast.error("Invalid user credentials or user inactive");
-    } else if (response.status == 400) {
-      toast.error("valid user credentials required. Contact your institution");
-    } else if (response.status == 200) {
-      toast.success("Login success");
-      let data = await response.json();
-      const token = data["access"];
-      const decodedToken = jwtDecode(token) as CustomJwtPayload;
-
-      const email = decodedToken.email;
-      const type = decodedToken.type;
-      const firstName = decodedToken.first_name;
-      const lastName = decodedToken.second_name;
-      const school = decodedToken.school;
-      const schoolName = decodedToken.school_name;
-      dispatch(login({ email, type, firstName, lastName, school, schoolName }));
-      localStorage.setItem("access", token);
-
-      navigate("/home");
     } else {
-      toast.error("unknown error occured, please contact your school");
+      if (response.status == 401) {
+        toast.error("Invalid user credentials or user inactive");
+      } else if (response.status == 400) {
+        toast.error(
+          "valid user credentials required. Contact your institution"
+        );
+      } else if (response.status == 200) {
+        toast.success("Login success");
+        let data = await response.json();
+        const token = data["access"];
+        const decodedToken = jwtDecode(token) as CustomJwtPayload;
+
+        const email = decodedToken.email;
+        const type = decodedToken.type;
+        const firstName = decodedToken.first_name;
+        const lastName = decodedToken.second_name;
+        const school = decodedToken.school;
+        const schoolName = decodedToken.school_name;
+        dispatch(
+          login({ email, type, firstName, lastName, school, schoolName })
+        );
+        localStorage.setItem("access", token);
+
+        navigate("/home");
+      } else {
+        toast.error("unknown error occured, please contact your school");
+      }
     }
   };
 
