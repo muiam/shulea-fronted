@@ -36,10 +36,10 @@ function BillPaymentList() {
 
     if (response.status == 200) {
       let data = await response.json();
-      setPaymentList(data);
-      setExpected(data[data.length - 1].stats.expected_amount);
-      setTotalPaidSum(data[data.length - 1].stats.total_paid_sum);
-      setPercentageSettled(data[data.length - 1].stats.percentage_settled);
+      setPaymentList(data.payments);
+      setExpected(data.stats.expected_amount);
+      setTotalPaidSum(data.stats.total_paid_sum);
+      setPercentageSettled(data.stats.percentage_settled);
     } else if (response.status == 404) {
       toast.error("no billed students found");
     } else {
@@ -101,7 +101,7 @@ function BillPaymentList() {
             </tbody>
           </table>
           <p style={{ marginTop: "10px", marginBottom: "10px" }}>
-            This is only {percentageSettled} out of KES {expected} expected
+            This is only {percentageSettled} % out of KES {expected} expected
           </p>
           {percentageSettled >= 100 ? (
             <div

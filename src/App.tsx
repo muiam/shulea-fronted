@@ -59,6 +59,7 @@ import BilledList from "./components/finance/forms/BilledList";
 import BillStudentForm from "./components/finance/forms/BillStudentForm";
 import BillPaymentList from "./components/finance/forms/BillPaymentList";
 import NewBillForm from "./components/finance/forms/NewBillForm";
+import Statements from "./components/finance/forms/Statements";
 
 interface props {
   children?: ReactNode;
@@ -584,6 +585,14 @@ function App() {
             element={
               <FinanceRoute>
                 <BillPaymentList />
+              </FinanceRoute>
+            }
+          />
+          <Route
+            path="/billing/statements/:billId"
+            element={
+              <FinanceRoute>
+                <Statements />
               </FinanceRoute>
             }
           />

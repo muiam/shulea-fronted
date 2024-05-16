@@ -219,7 +219,9 @@ function PayableBills() {
                         padding: "20px",
                         background: "aqua",
                       }}
-                      onClick={() => navigate(`/billed/${item.id}/`)}
+                      onClick={() =>
+                        navigate(`/billing/statements/${item.id}/`)
+                      }
                     >
                       check
                     </button>
