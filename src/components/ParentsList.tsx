@@ -12,6 +12,7 @@ interface Parent {
   first_name: string;
   last_name: string;
   is_active: boolean;
+  phone_number: string;
   // Add other properties as needed
 }
 
@@ -135,9 +136,8 @@ const ParentsList = () => {
                   <th>Email</th>
                   <th>first Name</th>
                   <th>Last Name</th>
-                  <th>status</th>
+                  <th>phone</th>
                   <th>Action?</th>
-                  <th>More</th>
                 </tr>
 
                 {mergedResults.map((parent, index) => (
@@ -146,7 +146,7 @@ const ParentsList = () => {
                     <td>{parent.email}</td>
                     <td>{parent.first_name}</td>
                     <td>{parent.last_name}</td>
-                    <td>{parent.is_active ? "Active" : "Inactive"}</td>
+                    <td>{parent.phone_number}</td>
                     <td>
                       {parent.is_active ? (
                         <button
@@ -163,9 +163,6 @@ const ParentsList = () => {
                           Activate
                         </button>
                       )}
-                    </td>
-                    <td>
-                      <button className="end-btn">More</button>
                     </td>
                   </tr>
                 ))}

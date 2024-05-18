@@ -996,8 +996,12 @@ select option :checked {
 }
 .custom-select {
   width: 100%;
+  margin-bottom: 10px;
 }
 
+.custom-select-default {
+  width: 100%;
+}
 .custom-select__control {
   background-color: aqua;
   height: 100px;

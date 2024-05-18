@@ -3,6 +3,7 @@ import MainNavbar from "../../menus/MainNavbar";
 import { getHeadersWithAuth, getPrivateUrl } from "../../../app/ApiRequest";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import Select, { SingleValue } from "react-select";
 
 interface Student {
   student_id: number;
@@ -12,14 +13,18 @@ interface Student {
 interface OverPay {
   total_unused: number;
 }
+type SelectOption = {
+  value: number;
+  label: string;
+};
 
 function ReceiptFees() {
   const params = useParams();
   const [student, setStudent] = useState<Student[]>([]);
-  const [selectedStudent, setSelectedStudent] = useState<number>(0);
   const [overPayAmount, setStudentOverPay] = useState<OverPay | 0>(0);
   const [payAmount, SetPayAmount] = useState<number>(0);
   const [receiptNo, setReceiptNo] = useState<number>(0);
+  const [selectedStudent, setSelectedStudent] = useState<number | null>(null);
 
   useEffect(() => {
     fetchStudent();
@@ -38,24 +43,32 @@ function ReceiptFees() {
     setStudent(data.unpaid_students);
   };
 
-  const handleStudentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedStudent = Number(e.target.value);
-    setSelectedStudent(selectedStudent);
+  const studentOptions = student.map((student) => ({
+    value: student.student_id,
+    label: student.student_name,
+  }));
+
+  const handleStudentChange = (selectedOption: SingleValue<SelectOption>) => {
+    setSelectedStudent(selectedOption ? selectedOption.value : null);
   };
 
   useEffect(() => {
     fetchStudentOverPay();
   }, [selectedStudent]);
   const fetchStudentOverPay = async () => {
-    let response = await fetch(
-      getPrivateUrl(`all/financial/our/school/fee/overpaid/${selectedStudent}`),
-      {
-        method: "GET",
-        headers: getHeadersWithAuth(),
-      }
-    );
-    let data = await response.json();
-    setStudentOverPay(data);
+    if (selectedStudent != null) {
+      let response = await fetch(
+        getPrivateUrl(
+          `all/financial/our/school/fee/overpaid/${selectedStudent}`
+        ),
+        {
+          method: "GET",
+          headers: getHeadersWithAuth(),
+        }
+      );
+      let data = await response.json();
+      setStudentOverPay(data);
+    }
   };
 
   const receiptFee = async () => {
@@ -77,7 +90,6 @@ function ReceiptFees() {
         }
       );
       if (response.status == 201) {
-        console.log("created");
         window.location.reload();
       } else {
         toast.error("receipt not successful");
@@ -165,22 +177,23 @@ function ReceiptFees() {
           </div>
           <div className="student-area">
             <div className="form-container" id="fees-form-container">
-              <select
-                name=""
-                id=""
-                className="default-select"
+              <Select
+                className="custom-select"
+                classNamePrefix="custom-select__control"
+                options={studentOptions}
+                isSearchable
+                isLoading
                 onChange={handleStudentChange}
-                value={selectedStudent || ""}
-              >
-                <option value={""} disabled>
-                  student
-                </option>
-                {student.map((item, index) => (
-                  <option key={index} value={item.student_id}>
-                    {item.student_name}
-                  </option>
-                ))}
-              </select>
+                placeholder="Select a student"
+                styles={{
+                  control: (baseStyles) => ({
+                    ...baseStyles,
+                    background: "aqua",
+                    height: "50px",
+                  }),
+                }}
+              />
+
               <div
                 style={{
                   position: "relative",
@@ -206,6 +219,7 @@ function ReceiptFees() {
                     paddingRight: "40px",
                     background: "aqua",
                     width: "100%",
+                    borderRadius: "5px",
                   }} // Added paddingRight to accommodate button
                 />
                 <button
@@ -252,7 +266,7 @@ function ReceiptFees() {
               )}
 
               {!selectedStudent ? (
-                <div>
+                <div style={{ width: "100%" }}>
                   <p>Error: Student not selected</p>
                   <button
                     disabled
@@ -260,7 +274,7 @@ function ReceiptFees() {
                       cursor: "progress",
                       alignSelf: "flex-end",
                       background: "aqua",
-                      width: "100px",
+                      width: "100%",
                       height: "50px",
                       fontSize: "20px",
                     }}
