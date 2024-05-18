@@ -144,7 +144,9 @@ function BilledList() {
               }}
               onChange={handleGradeChange}
             >
-              <option>grade</option>
+              <option value="" disabled>
+                grade
+              </option>
               {grade.map((item) => (
                 <option value={item.id}>
                   grade {item.stream ? item.name + item.stream : item.name}

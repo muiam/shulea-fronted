@@ -200,7 +200,9 @@ function Expenditure() {
                   marginRight: "5px",
                 }}
               >
-                <option disabled>select heading</option>
+                <option value={""} disabled>
+                  vote head
+                </option>
                 {ExpenditureItem.map((item, index) => (
                   <option key={index} value={item.id}>
                     {item.name}

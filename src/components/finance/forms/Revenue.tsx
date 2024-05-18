@@ -193,7 +193,9 @@ function Revenue() {
                 }}
                 value={selectedRevenue || ""}
               >
-                <option disabled>select heading</option>
+                <option value={""} disabled>
+                  vote head
+                </option>
                 {RevenueItem.map((item, index) => (
                   <option key={index} value={item.id}>
                     {item.name}
