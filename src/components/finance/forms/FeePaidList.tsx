@@ -168,7 +168,7 @@ function FeePaidList() {
             >
               <div
                 style={{
-                  width: `${percentage}%`, // Set the width to 100% to prevent overflow
+                  width: `${percentage} %`, // Set the width to 100% to prevent overflow
                   backgroundColor: "aqua",
                   borderRadius: "8px",
                   height: "100%",

@@ -111,7 +111,7 @@ function Ledger() {
       <MainNavbar />
       <div className="app-content-start">
         <div
-          className=""
+          className="balances-flex"
           id="balances-flex"
           style={{
             display: "flex",
@@ -120,12 +120,7 @@ function Ledger() {
             alignItems: "center", // Centering vertically
           }}
         >
-          <div
-            id="stats-flex-display"
-            style={{
-              display: "flex",
-            }}
-          >
+          <div className="stats-flex-display" id="stats-flex-display">
             <div
               className=""
               style={{
@@ -175,7 +170,7 @@ function Ledger() {
           </div>
 
           <div className="ledger-btns" id="ledger-btns">
-            <div className="" style={{ display: "flex", gap: "5px" }}>
+            <div className="sort-dates" id="sort-dates">
               <select
                 style={{ background: "aqua" }}
                 onChange={handleFromDateChange}
@@ -205,10 +200,10 @@ function Ledger() {
                 ))}
               </select>
             </div>
-            <div className="new-payroll" id="new-payroll">
+            <div className="new-ledger-credit" id="new-ledger-credit">
               <button onClick={handleRevenue}>Credit</button>
             </div>
-            <div className="new-payroll" id="new-payroll">
+            <div className="new-ledger-debit" id="new-ledger-debit">
               <button onClick={handleExpenditure}>Debit</button>
             </div>
           </div>

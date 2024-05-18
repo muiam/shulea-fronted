@@ -286,8 +286,6 @@ const AddStudentForm = () => {
               </div>
               <div className="add-form">
                 <select
-                  name="curriculum"
-                  id=""
                   onChange={(e) => setselectedGender(e.target.value)}
                   value={selectedGender || ""}
                 >

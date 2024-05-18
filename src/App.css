@@ -326,6 +326,16 @@ nav:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  #new-ledger-credit {
+    background-color: aqua;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  #new-ledger-debit {
+    background-color: aqua;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
   .quick-links {
     height: fit-content;
   }
@@ -495,6 +505,7 @@ nav:hover {
   }
   #ledger-btns {
     flex-direction: column;
+    width: 100%;
   }
   .form-button {
     margin-right: 10px;
@@ -1026,16 +1037,10 @@ select option :checked {
   #perfomance-container {
     flex-direction: column;
   }
-  #balances-flex {
-    flex-direction: column;
-    margin-bottom: 10px;
+  .balances-flex {
+    display: none;
   }
-  #stats-flex-display {
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
+
   #ledger.btns {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -1094,7 +1099,6 @@ select option :checked {
     max-width: 90%;
   }
 }
-
 .perfomance-container {
   overflow-y: hidden;
   margin-top: 20px;
@@ -1197,6 +1201,29 @@ input[type="number"] {
   .weekly-report-form-zone {
     grid-template-columns: repeat(2, 1fr);
   }
+  #stats-flex-display {
+    display: flex;
+  }
+  #sort-dates {
+    display: flex;
+    gap: 5px;
+  }
+  #new-ledger-credit {
+    background-color: aqua;
+    margin-left: 5px;
+  }
+  #new-ledger-debit {
+    background-color: aqua;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+}
+
+.sort-dates {
+  display: none;
+}
+.stats-flex-display {
+  display: none;
 }
 .select-details {
   height: 50px;
