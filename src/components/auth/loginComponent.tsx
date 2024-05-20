@@ -157,7 +157,7 @@ function loginComponent() {
                   icon={faCheckCircle}
                   style={{ color: "aqua", fontSize: "15px" }}
                 />{" "}
-                Data visualizatiin: we show your data in graphs , bars and
+                Data visualization: we show your data in graphs , bars and
                 tables for easy interpretation
               </li>
 
@@ -181,33 +181,29 @@ function loginComponent() {
           <div
             className=""
             style={{
-              width: "300px",
+              width: "calc(100% - 40px)",
               marginRight: "20px",
               height: "100px",
               marginTop: "20px",
               display: "flex",
               alignSelf: "flex-end",
+              marginLeft: "20px",
             }}
           >
-            <img
-              src={shulea300}
-              alt="shuilea logo"
-              style={{
-                width: "100%", // Make sure the image takes up the entire width of the div
-                height: "100%", // Make sure the image takes up the entire height of the div
-                objectFit: "cover", // Ensure the image covers the entire div
-              }}
-            />
+            <div className="logo-design">
+              <div className="sitename-first">SHU</div>
+              <h3 className="sitename-second">LEA</h3>
+            </div>
           </div>
-
           <h1>Login</h1>
           <form action="">
             <div className="login-form">
               <label htmlFor="email">email</label>
               <input
                 style={{
-                  width: "300px",
+                  width: "100%",
                   padding: "10px",
+                  height: "50px",
                   background: "aqua",
                   borderRadius: "8px",
                   textIndent: "10px",
@@ -225,8 +221,9 @@ function loginComponent() {
               <label htmlFor="password">password</label>
               <input
                 style={{
-                  width: "300px",
+                  width: "100%",
                   padding: "10px",
+                  height: "50px",
                   background: "aqua",
                   borderRadius: "8px",
                   textIndent: "10px",
@@ -245,19 +242,16 @@ function loginComponent() {
                 onClick={handleLogin}
                 style={{
                   background: "aqua",
-                  width: "100px",
+                  width: "100%",
                   height: "50px",
                 }}
               >
                 {loading ? (
-                  <div
-                    className="loader"
-                    style={{ width: "50px", height: "50px" }}
-                  >
+                  <center>
                     <div className="loading"></div>
-                  </div>
+                  </center>
                 ) : (
-                  "login"
+                  "Login"
                 )}
               </button>
             </div>
@@ -274,9 +268,18 @@ function loginComponent() {
                     fontSize: "20px",
                   }}
                 >
-                  reset
+                  Reset
                 </a>
               </span>
+              <div className="" style={{ marginTop: "20px" }}>
+                school not served by shulea?
+                <button
+                  onClick={() => navigate("/signup-my-school")}
+                  style={{ width: "100%", background: "aqua", height: "50px" }}
+                >
+                  Register
+                </button>
+              </div>
             </div>
           </form>
         </div>

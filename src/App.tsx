@@ -60,6 +60,7 @@ import BillStudentForm from "./components/finance/forms/BillStudentForm";
 import BillPaymentList from "./components/finance/forms/BillPaymentList";
 import NewBillForm from "./components/finance/forms/NewBillForm";
 import Statements from "./components/finance/forms/Statements";
+import SchoolSignupForm from "./components/auth/SchoolSignupForm";
 
 interface props {
   children?: ReactNode;
@@ -606,6 +607,7 @@ function App() {
           />
           <Route path="/reset-password/confirm" element={<PasswordReset />} />
           <Route path="/request/reset" element={<RequestPasswordReset />} />
+          <Route path="/signup-my-school" element={<SchoolSignupForm />} />
         </Routes>
       </BrowserRouter>
     </>
