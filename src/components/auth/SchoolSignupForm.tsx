@@ -1,5 +1,4 @@
 import { SyntheticEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getPrivateUrl } from "../../app/ApiRequest";
 import { ToastContainer, toast } from "react-toastify";
 import Select from "react-select";
@@ -28,7 +27,6 @@ const SchoolSignupForm = () => {
   const [headTeacherName, setheadTeacherName] = useState("");
   const [selectedCurriculum, setSelectedCurriculum] = useState("");
   const [selectedPopulation, setSelectedPopulation] = useState("");
-  const navigate = useNavigate();
   const [selectedCounty, setSelectedCounty] = useState<County | null>(null);
   const [selectedConstituency, setSelectedConstituency] =
     useState<Constituency | null>(null);
@@ -94,9 +92,9 @@ const SchoolSignupForm = () => {
         school_email: email,
         population: selectedPopulation,
         curriculum: selectedCurriculum,
-        county: selectedCounty,
-        constituency: selectedConstituency,
-        ward: selectedWard,
+        county: selectedCounty?.value,
+        constituency: selectedConstituency?.value,
+        ward: selectedWard?.value,
       }),
     });
     setLoading(false);
@@ -109,7 +107,6 @@ const SchoolSignupForm = () => {
 
     if (response.status == 201) {
       toast.success("success, we have enrolled your school");
-      navigate("/success");
     } else {
       toast.error(
         "unkown error occured. Maybe you are submitting without school name , head techer and school email fields"
