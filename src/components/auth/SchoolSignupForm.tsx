@@ -108,7 +108,9 @@ const SchoolSignupForm = () => {
     setEmail("");
 
     if (response.status == 201) {
-      toast.success("success, we have enrolled your school");
+      toast.success(
+        "success, we have added your school into our list. We shall get back to you for a demo and onboarding process"
+      );
     } else {
       toast.error(
         "unkown error occured. Maybe you are submitting without school name , head techer and school email fields"
