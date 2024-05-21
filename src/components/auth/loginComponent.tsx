@@ -1,5 +1,4 @@
 import { SyntheticEvent, useState } from "react";
-import shulea300 from "../../../public/shulea-bw.svg";
 import { useNavigate } from "react-router-dom";
 import { JwtPayload, jwtDecode } from "jwt-decode";
 import { useDispatch } from "react-redux";
