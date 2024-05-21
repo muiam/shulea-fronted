@@ -105,6 +105,7 @@ const SchoolSignupForm = () => {
     setSelectedConstituency(null);
     setSelectedCurriculum("");
     setSelectedPopulation("");
+    setEmail("");
 
     if (response.status == 201) {
       toast.success("success, we have enrolled your school");
