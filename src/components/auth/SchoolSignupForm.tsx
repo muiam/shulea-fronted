@@ -95,6 +95,7 @@ const SchoolSignupForm = () => {
         county: selectedCounty?.value,
         constituency: selectedConstituency?.value,
         ward: selectedWard?.value,
+        note: note,
       }),
     });
     setLoading(false);
