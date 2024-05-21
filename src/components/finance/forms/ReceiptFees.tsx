@@ -287,7 +287,7 @@ function ReceiptFees() {
                   overPayAmount.total_unused === 0 &&
                   payAmount === 0) ||
                 payAmount === null ? (
-                <div>
+                <div style={{ width: "100%" }}>
                   <p>
                     Error: Receipt number not entered and overpay unused is 0
                   </p>
@@ -297,7 +297,7 @@ function ReceiptFees() {
                       cursor: "progress",
                       alignSelf: "flex-end",
                       background: "aqua",
-                      width: "100px",
+                      width: "100%",
                       height: "50px",
                       fontSize: "20px",
                     }}
@@ -306,13 +306,13 @@ function ReceiptFees() {
                   </button>
                 </div>
               ) : (
-                <div>
+                <div style={{ width: "100%" }}>
                   <p>enter amount and proceed to save</p>
                   <button
                     style={{
                       alignSelf: "flex-end",
                       background: "aqua",
-                      width: "100px",
+                      width: "100%",
                       height: "50px",
                       fontSize: "20px",
                     }}
