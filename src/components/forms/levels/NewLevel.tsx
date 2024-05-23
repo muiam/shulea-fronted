@@ -8,9 +8,11 @@ function NewLevel() {
   const [level, setLevel] = useState<number>(0);
   const [stream, setStream] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setLoding] = useState(false);
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
+    setLoding(true);
     if (level > 0) {
       let response = await fetch(getPrivateUrl(`actions/levels`), {
         method: "POST",
@@ -20,6 +22,7 @@ function NewLevel() {
           stream: stream,
         }),
       });
+      setLoding(false);
       if (response.status == 201) {
         toast.success("done");
         navigate("/levels");
@@ -59,18 +62,37 @@ function NewLevel() {
                 className="add-input"
               />
             </div>
-            <button type="submit" className="add-record-btn">
-              save
-            </button>
           </form>
-
-          {/* <details>
-                  <p>
-                    We shall email the above email the login credentials . Please
-                    advise your teachers to always change their passwords on first
-                    time login
-                  </p>
-                </details> */}
+          <div className="">
+            {" "}
+            <button
+              className=""
+              style={{
+                background: "aqua",
+                height: "50px",
+                width: "calc(100% - 40px)", // Adjusted width to accommodate the spinner
+                marginRight: "20px",
+                marginLeft: "20px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center", // Center the spinner vertically
+                position: "relative", // Necessary for absolute positioning of the spinner
+                overflow: "hidden",
+              }}
+              onClick={handleSubmit}
+            >
+              {isLoading ? (
+                <div
+                  className="loader"
+                  style={{ width: "50px", height: "50px" }}
+                >
+                  <div className="loading"></div>
+                </div>
+              ) : (
+                "save"
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </>
