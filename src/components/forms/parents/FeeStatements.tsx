@@ -39,13 +39,18 @@ function FeeStatements() {
       if (response.status === 200) {
         let data = await response.json();
         setStudents(data);
+        if (data.length === 1) {
+          setSelectedStudentId(data[0].id);
+        }
       }
     };
     getStudents();
   }, []);
 
   useEffect(() => {
-    FetchStatements();
+    if (selectedStudentId !== 0) {
+      FetchStatements();
+    }
   }, [selectedStudentId]);
   const FetchStatements = async () => {
     let response = await fetch(
@@ -87,7 +92,7 @@ function FeeStatements() {
                 setSelectedStudentId(Number(e.target.value));
               }}
             >
-              <option value={""} disabled>
+              <option value="" disabled>
                 student
               </option>
               {students.map((student) => (

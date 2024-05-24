@@ -73,6 +73,9 @@ function ProgressData() {
         if (response.status === 200) {
           let data = await response.json();
           setStudents(data);
+          if (data.length === 1) {
+            setSelectedStudentId(data[0].id);
+          }
         }
       }
     };
