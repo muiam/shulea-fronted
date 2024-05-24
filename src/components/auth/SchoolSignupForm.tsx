@@ -137,6 +137,7 @@ const SchoolSignupForm = () => {
                   placeholder="school name (required)"
                   name="school name"
                   className="add-input"
+                  style={{ background: "#ecf0f1" }}
                 />
               </div>
               <div className="add-form">
@@ -147,6 +148,7 @@ const SchoolSignupForm = () => {
                   placeholder="headteacher name (required)"
                   name="full-name"
                   className="add-input"
+                  style={{ background: "#ecf0f1" }}
                 />
               </div>
               <div className="add-form">
@@ -154,7 +156,7 @@ const SchoolSignupForm = () => {
                   style={{
                     width: "100%",
                     textIndent: "10px",
-                    background: "aqua",
+                    background: "#ecf0f1",
                     borderRadius: "10px",
                   }}
                   type="email"
@@ -168,6 +170,7 @@ const SchoolSignupForm = () => {
 
               <div className="add-form">
                 <select
+                  style={{ background: "#ecf0f1" }}
                   name=""
                   id=""
                   onChange={(e) => setSelectedPopulation(e.target.value)}
@@ -188,6 +191,9 @@ const SchoolSignupForm = () => {
               </div>
               <div className="add-form">
                 <select
+                  style={{
+                    background: "#ecf0f1",
+                  }}
                   name="curriculum"
                   id=""
                   onChange={(e) => setSelectedCurriculum(e.target.value)}
@@ -213,7 +219,7 @@ const SchoolSignupForm = () => {
                   styles={{
                     control: (baseStyles) => ({
                       ...baseStyles,
-                      background: "aqua",
+                      background: "#ecf0f1",
                       height: "50px",
                     }),
                   }}
@@ -231,7 +237,7 @@ const SchoolSignupForm = () => {
                     styles={{
                       control: (baseStyles) => ({
                         ...baseStyles,
-                        background: "aqua",
+                        background: "#ecf0f1",
                         height: "50px",
                       }),
                     }}
@@ -250,7 +256,7 @@ const SchoolSignupForm = () => {
                     styles={{
                       control: (baseStyles) => ({
                         ...baseStyles,
-                        background: "aqua",
+                        background: "#ecf0f1",
                         height: "50px",
                       }),
                     }}
@@ -266,7 +272,7 @@ const SchoolSignupForm = () => {
                 id=""
                 rows={1}
                 placeholder="any note?"
-                style={{ marginBottom: "10px" }}
+                style={{ marginBottom: "10px", background: "#ecf0f1" }}
               ></textarea>
             </div>
 

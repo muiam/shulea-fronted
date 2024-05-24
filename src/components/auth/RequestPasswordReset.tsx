@@ -163,10 +163,11 @@ function RequestPasswordReset() {
               <label htmlFor="email">email</label>
               <input
                 style={{
-                  width: "300px",
+                  width: "100%",
                   padding: "10px",
-                  background: "aqua",
+                  background: "#ecf0f1",
                   borderRadius: "8px",
+                  height: "50px",
                 }}
                 placeholder="eg abc @gmail.com"
                 required
@@ -183,7 +184,7 @@ function RequestPasswordReset() {
                 onClick={handleReset}
                 style={{
                   background: "aqua",
-                  width: "100px",
+                  width: "100%",
                   height: "50px",
                 }}
               >

@@ -203,8 +203,8 @@ function loginComponent() {
                   width: "100%",
                   padding: "10px",
                   height: "50px",
-                  background: "aqua",
                   borderRadius: "8px",
+                  background: "#ecf0f1",
                   textIndent: "10px",
                 }}
                 placeholder=" eg abc@gmail.com"
@@ -223,7 +223,7 @@ function loginComponent() {
                   width: "100%",
                   padding: "10px",
                   height: "50px",
-                  background: "aqua",
+                  background: "#ecf0f1",
                   borderRadius: "8px",
                   textIndent: "10px",
                 }}
