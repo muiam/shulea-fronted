@@ -109,9 +109,7 @@ label {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
 button {
-  background-color: transparent;
   padding: 14px 20px;
   margin: 8px 0;
   border-radius: 10px;
@@ -120,8 +118,21 @@ button {
   font-family: inherit;
 }
 
-::selection {
+.default-shulea-button {
   background-color: aqua;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  width: calc(100% - 40px);
+  font-family: inherit;
+}
+.default-shulea-button :hover {
+  background-color: #ecf0f1;
+}
+
+::selection {
+  background-color: #ecf0f1;
   color: black;
 }
 .enter-mark-flex {
@@ -139,7 +150,7 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
   margin: 0;
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 100%;
   height: 50px;
   text-indent: 40px;
@@ -270,7 +281,7 @@ nav:hover {
 }
 .container-dashboard {
   flex-direction: row;
-  background-color: aqua;
+  background-color: #ecf0f1;
   height: 200px;
   margin-top: 5px;
   margin-left: 10px;
@@ -291,7 +302,7 @@ nav:hover {
   margin-top: 10px;
 }
 .select-items-for-payroll {
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 100%;
   margin-right: 5px;
 }
@@ -323,7 +334,7 @@ nav:hover {
 .head-dashboard-container {
   height: 100px;
   width: 100%;
-  background-color: aqua;
+  background-color: #ecf0f1;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -347,7 +358,7 @@ nav:hover {
 }
 
 .quick-link {
-  border: 1px solid aqua;
+  border: 1px solid #ecf0f1;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -364,12 +375,12 @@ nav:hover {
 
 @media only screen and (max-width: 768px) {
   #new-ledger-credit {
-    background-color: aqua;
+    background-color: #ecf0f1;
     margin-bottom: 10px;
     border-radius: 5px;
   }
   #new-ledger-debit {
-    background-color: aqua;
+    background-color: #ecf0f1;
     margin-bottom: 10px;
     border-radius: 5px;
   }
@@ -428,7 +439,7 @@ nav:hover {
   }
 
   .container-dashboard {
-    background-color: aqua;
+    background-color: #ecf0f1;
     height: 200px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -450,7 +461,7 @@ nav:hover {
     max-height: 100%;
   }
   #new-payroll {
-    background-color: aqua;
+    background-color: #ecf0f1;
     width: 100%;
     margin-left: 10px;
     margin-right: 15px;
@@ -533,7 +544,8 @@ nav:hover {
   }
 
   .form-select-container {
-    margin-right: 60px;
+    margin-right: 10px;
+    gap: 10px;
     flex-direction: column; /* Stacks the selects vertically on smaller screens */
   }
 
@@ -651,7 +663,7 @@ nav:hover {
   margin-right: 10px;
 }
 .revenue-enter {
-  border: 2px solid aqua;
+  border: 2px solid #ecf0f1;
   height: 60px;
   margin-left: 10px;
   margin-right: 10px;
@@ -712,7 +724,7 @@ td {
 }
 
 th {
-  background-color: aqua;
+  background-color: #ecf0f1;
 }
 
 button {
@@ -738,7 +750,7 @@ button {
 }
 
 .search-input {
-  border: 2px solid aqua;
+  border: 2px solid #ecf0f1;
   flex: 1;
   padding: 10px;
   border-radius: 5px;
@@ -776,7 +788,7 @@ button {
 .add-form textarea,
 .add-form select {
   width: 100%;
-  background-color: aqua;
+  background-color: #ecf0f1;
   padding: 20px;
   border-radius: 10px;
 }
@@ -813,7 +825,7 @@ button {
 }
 .change-grade {
   padding: 15px;
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 300px;
   border-radius: 10px;
 }
@@ -831,7 +843,7 @@ button {
   margin-bottom: 20px;
 }
 .enter-mark-area input[type="number"] {
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 200px;
 }
 
@@ -842,7 +854,7 @@ button {
 
 .form-container select {
   width: 100%;
-  background-color: aqua;
+  background-color: #ecf0f1;
   padding: 15px;
   border-radius: 10px;
 }
@@ -899,7 +911,7 @@ select option :checked {
 
 .add-form input[type="password"] {
   width: 100%;
-  background-color: aqua;
+  background-color: #ecf0f1;
   height: 50px;
   text-indent: 10px;
   border-radius: 10px;
@@ -964,7 +976,7 @@ select option :checked {
 
 .subject-item {
   display: flex;
-  background-color: aqua;
+  background-color: #ecf0f1;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
@@ -1018,7 +1030,7 @@ select option :checked {
   padding: 20px;
 }
 .new-payroll {
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 100px;
   flex: 1;
   margin-right: 10px;
@@ -1057,7 +1069,7 @@ select option :checked {
   width: 100%;
 }
 .custom-select__control {
-  background-color: aqua;
+  background-color: #ecf0f1;
   height: 100px;
 }
 
@@ -1151,11 +1163,11 @@ select option :checked {
 }
 .report-form-zone {
   flex: 1;
-  border: 1px solid aqua;
+  border: 1px solid #ecf0f1;
 }
 .report-bar-zone {
   flex: 1;
-  border: 1px solid aqua;
+  border: 1px solid #ecf0f1;
 }
 .report-form-header {
   text-align: center;
@@ -1179,14 +1191,14 @@ select option :checked {
 }
 
 .form-fields-grid select {
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 100%;
   padding: 15px;
   border-radius: 8px;
 }
 .form-fields-grid input[type="text"],
 input[type="number"] {
-  background-color: aqua;
+  background-color: #ecf0f1;
   width: 100%;
   padding: 20px;
 }
@@ -1216,7 +1228,7 @@ input[type="number"] {
 }
 .default-select {
   width: 100%;
-  background-color: aqua;
+  background-color: #ecf0f1;
   padding: 10px;
   margin-bottom: 20px;
   margin-top: 10px;
@@ -1252,11 +1264,11 @@ input[type="number"] {
     gap: 5px;
   }
   #new-ledger-credit {
-    background-color: aqua;
+    background-color: #ecf0f1;
     margin-left: 5px;
   }
   #new-ledger-debit {
-    background-color: aqua;
+    background-color: #ecf0f1;
     margin-left: 5px;
     margin-right: 10px;
   }
@@ -1277,7 +1289,7 @@ input[type="number"] {
 }
 .select-learner-details {
   flex: 1;
-  background-color: aqua;
+  background-color: #ecf0f1;
   border-radius: 8px;
   margin-right: 10px;
 }
@@ -1291,7 +1303,7 @@ input[type="number"] {
   margin-right: 10px;
 }
 .text-area-form-zone {
-  border: 1px solid aqua;
+  border: 1px solid #ecf0f1;
   width: 100%;
 }
 

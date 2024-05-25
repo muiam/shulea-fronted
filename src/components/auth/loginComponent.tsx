@@ -238,9 +238,9 @@ function loginComponent() {
             </div>
             <div className="login-form">
               <button
+                className="default-shulea-button"
                 onClick={handleLogin}
                 style={{
-                  background: "aqua",
                   width: "100%",
                   height: "50px",
                 }}
@@ -273,8 +273,9 @@ function loginComponent() {
               <div className="" style={{ marginTop: "20px" }}>
                 school not served by shulea?
                 <button
+                  className="default-shulea-button"
                   onClick={() => navigate("/signup-my-school")}
-                  style={{ width: "100%", background: "aqua", height: "50px" }}
+                  style={{ width: "100%", height: "50px" }}
                 >
                   Register
                 </button>

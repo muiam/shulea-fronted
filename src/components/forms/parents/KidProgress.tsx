@@ -92,16 +92,11 @@ function KidProgress() {
       <MainNavbar />
       <div className="app-content-start">
         <div className="add-start-new">
-          <h2 className="default-heading">
-            set the academic year and term and then select exam{" "}
-          </h2>
-
           <form className="form-container" id="results-add-form">
             <div
               className="form-select-container"
               id="results-add-form-selector"
             >
-              <label htmlFor="academic">Academic Year</label>
               <select
                 name=""
                 id=""
@@ -118,8 +113,9 @@ function KidProgress() {
                   </option>
                 ))}
               </select>
-              <label htmlFor="Term">Term</label>
+
               <select
+                style={{ marginLeft: "5px" }}
                 name=""
                 id=""
                 onChange={(e) => setSelectedTermId(Number(e.target.value))}

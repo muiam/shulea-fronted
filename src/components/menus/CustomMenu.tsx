@@ -22,13 +22,13 @@ export function TeacherMenu() {
         <li>
           <a href="/my-subjects">
             <i className="fa-solid fa-book"></i>
-            <span className="nav-item">Exams</span>
+            <span className="nav-item">Exam marks</span>
           </a>
         </li>
         <li>
           <a href="/year-exam">
             <i className="fa-solid fa-table"></i>
-            <span className="nav-item">Ranks</span>
+            <span className="nav-item">Exam Ranks</span>
           </a>
         </li>
         <li>
@@ -80,15 +80,12 @@ export function TeacherMenu() {
             <span className="nav-item">Updates</span>
           </a>
         </li>
-
         <li>
-          <a onClick={handLogout} className="logout">
-            <i className="fa-solid fa-sign-out"></i>
-            <span className="nav-item">Logout</span>
-          </a>
-        </li>
-        <li>
-          <a onClick={handLogout} className="logout">
+          <a
+            onClick={handLogout}
+            style={{ cursor: "pointer" }}
+            className="logout"
+          >
             <i className="fa-solid fa-sign-out"></i>
             <span className="nav-item">Logout</span>
           </a>
@@ -179,13 +176,11 @@ export function HeadTeacherMenu() {
         </li>
 
         <li>
-          <a onClick={handLogout} className="logout">
-            <i className="fa-solid fa-sign-out"></i>
-            <span className="nav-item">Logout</span>
-          </a>
-        </li>
-        <li>
-          <a onClick={handLogout} className="logout">
+          <a
+            onClick={handLogout}
+            style={{ cursor: "pointer" }}
+            className="logout"
+          >
             <i className="fa-solid fa-sign-out"></i>
             <span className="nav-item">Logout</span>
           </a>
@@ -261,7 +256,11 @@ export function ParentMenu() {
           </a>
         </li>
         <li>
-          <a onClick={handLogout} className="logout">
+          <a
+            onClick={handLogout}
+            style={{ cursor: "pointer" }}
+            className="logout"
+          >
             <i className="fa-solid fa-sign-out"></i>
             <span className="nav-item">Logout</span>
           </a>
@@ -350,14 +349,11 @@ export function AccountantMenu() {
           </a>
         </li>
         <li>
-          <a onClick={handLogout} className="logout">
-            <i className="fa-solid fa-sign-out"></i>
-            <span className="nav-item">Logout</span>
-          </a>
-        </li>
-
-        <li>
-          <a onClick={handLogout} className="logout">
+          <a
+            onClick={handLogout}
+            style={{ cursor: "pointer" }}
+            className="logout"
+          >
             <i className="fa-solid fa-sign-out"></i>
             <span className="nav-item">Logout</span>
           </a>
@@ -390,6 +386,7 @@ export function UserWelcome({ name }: { name: string }) {
             </span>
           ))}
           <button
+            style={{ background: " #ecf0f1" }}
             className="end-btn"
             onClick={() => navigate(`/change/password`)}
           >

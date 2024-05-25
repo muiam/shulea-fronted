@@ -39,13 +39,7 @@ function QueryStudent() {
   const [studentMarks, setStudentMarks] = useState<StudentMark[]>([]);
 
   const location = useLocation();
-  const {
-    subjectIdentityId,
-    subjectLevel,
-    subjectLeveleStream,
-    subjectName,
-    subjectLevelId,
-  } = location.state || {};
+  const { subjectIdentityId, subjectLevelId } = location.state || {};
 
   useEffect(() => {
     fetch(getPrivateUrl("actions/allYears"), {
@@ -164,19 +158,11 @@ function QueryStudent() {
       <MainNavbar />
       <div className="app-content-start">
         <div className="add-start-new">
-          <h2 className="enter-mark-heading">
-            Enter exam marks for {subjectName} Grade{" "}
-            {subjectLeveleStream
-              ? `${subjectLevel}${subjectLeveleStream}`
-              : subjectLevel}
-          </h2>
-          {/* Form for selecting the year, term, exam, and grade */}
           <form className="form-container" id="results-add-form">
             <div
               className="form-select-container"
               id="results-add-form-selector"
             >
-              <label htmlFor="academic">Academic Year</label>
               <select
                 name=""
                 id=""
@@ -193,8 +179,9 @@ function QueryStudent() {
                   </option>
                 ))}
               </select>
-              <label htmlFor="Term">Term</label>
+
               <select
+                style={{ marginLeft: "5px" }}
                 name=""
                 id=""
                 onChange={(e) => setSelectedTermId(Number(e.target.value))}
@@ -210,8 +197,8 @@ function QueryStudent() {
                   </option>
                 ))}
               </select>
-              <label htmlFor="grade">Exam</label>
               <select
+                style={{ marginLeft: "5px" }}
                 name=""
                 id=""
                 onChange={(e) => setSelectedExamId(Number(e.target.value))}
@@ -229,7 +216,7 @@ function QueryStudent() {
               </select>
             </div>
             <button className="form-button" onClick={fetchStudents}>
-              Get students
+              search
             </button>
           </form>
           <form onSubmit={handleSubmit} className="enter-mark-flex">
@@ -252,6 +239,7 @@ function QueryStudent() {
                         <input
                           type="number"
                           placeholder="enter % mark"
+                          style={{ background: "white" }}
                           onChange={(e) =>
                             handleMarkChange(
                               student.admission_number,

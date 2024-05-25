@@ -143,7 +143,6 @@ function KidReports() {
         }
       );
       if (response.status == 200) {
-        toast.success("we fetch your reports");
         let data = await response.json();
         setReport(data);
       } else {

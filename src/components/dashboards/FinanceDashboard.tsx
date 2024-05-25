@@ -105,7 +105,7 @@ function FinanceDashboard() {
               name=""
               id=""
               style={{
-                background: "aqua",
+                background: "#ecf0f1",
                 height: "50px",
                 marginRight: "10px",
                 width: "100px",
@@ -133,7 +133,7 @@ function FinanceDashboard() {
           <div
             className=""
             style={{
-              background: "aqua",
+              background: "#ecf0f1",
               borderRadius: "8px",
               marginBottom: "10px",
               display: "flex",
@@ -146,7 +146,7 @@ function FinanceDashboard() {
           <div
             className=""
             style={{
-              background: "aqua",
+              background: "#ecf0f1",
               borderRadius: "8px",
               marginBottom: "10px",
               display: "flex",
@@ -159,7 +159,7 @@ function FinanceDashboard() {
           <div
             className=""
             style={{
-              border: "1px solid aqua",
+              border: "1px solid  #ecf0f1",
               borderRadius: "8px",
               marginBottom: "10px",
               display: "grid",
@@ -170,25 +170,25 @@ function FinanceDashboard() {
           >
             <button
               onClick={ledger}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               LEDGER
             </button>
             <button
               onClick={fees}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               FEES
             </button>
             <button
               onClick={wallet}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               WALLETS
             </button>
             <button
               onClick={payroll}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               PAYROLL
             </button>

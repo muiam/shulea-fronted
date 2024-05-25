@@ -118,7 +118,7 @@ function ParentDashboard() {
           >
             <select
               style={{
-                background: "aqua",
+                background: "#ecf0f1",
                 height: "50px",
                 marginRight: "10px",
                 width: "200px",
@@ -156,7 +156,7 @@ function ParentDashboard() {
           <div
             className=""
             style={{
-              background: "aqua",
+              background: "#ecf0f1",
               borderRadius: "8px",
               marginBottom: "10px",
               display: "flex",
@@ -169,7 +169,7 @@ function ParentDashboard() {
           <div
             className=""
             style={{
-              background: "aqua",
+              background: "#ecf0f1",
               borderRadius: "8px",
               marginBottom: "10px",
               display: "flex",
@@ -193,25 +193,25 @@ function ParentDashboard() {
           >
             <button
               onClick={progress}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               PROGRESS
             </button>
             <button
               onClick={fees}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               FEES
             </button>
             <button
               onClick={reports}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               REPORTS
             </button>
             <button
               onClick={hanleLogout}
-              style={{ background: "aqua", width: "100%" }}
+              style={{ background: "#ecf0f1", width: "100%" }}
             >
               LOGOUT
             </button>
