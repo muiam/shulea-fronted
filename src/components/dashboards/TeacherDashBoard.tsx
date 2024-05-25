@@ -50,6 +50,7 @@ function TeacherDashBoard() {
       <div className="quick-links">
         <h3 style={{ marginBottom: "10px" }}>Quick Navigation</h3>
         <div className="quick-links-container">
+          <i className=""></i>
           <a href="/my-subjects" className="quick-link">
             Enter marks
           </a>
