@@ -122,7 +122,7 @@ function FinanceDashboard() {
               ))}
             </select>
           </div>
-          <div className="">
+          <div className="rev-exp-ledger-stats">
             <LineChart monthsData={monthyFinance} />
           </div>
         </div>

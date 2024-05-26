@@ -44,7 +44,6 @@ const LineChart: React.FC<LineChartProps> = ({ monthsData }) => {
         ],
       },
       options: {
-        responsive: true,
         scales: {
           y: {
             beginAtZero: true,
@@ -60,7 +59,7 @@ const LineChart: React.FC<LineChartProps> = ({ monthsData }) => {
     };
   }, [monthsData]);
 
-  return <canvas ref={chartRef} />;
+  return <canvas id="rev-exp-canva" className="rev-exp-canva" ref={chartRef} />;
 };
 
 export default LineChart;

@@ -96,14 +96,6 @@
 .login-form p {
   text-align: center;
 }
-
-/* input[type="text"],
-[type="password"] {
-  width: calc(100% - 40px);
-  padding: 14px 0px;
-  border-radius: 10px;
-  text-indent: 40px;
-} */
 label {
   display: block;
   padding-top: 10px;
@@ -239,13 +231,13 @@ a {
 .nav-item {
   position: relative;
   top: 12px;
-  margin-left: 10px;
+  margin-left: 1px;
 }
 nav ul li a:hover {
   background-color: white;
 }
 nav:hover {
-  width: 300px;
+  width: 250px;
   transition: all 0.5s ease;
 }
 .logout {
@@ -374,6 +366,14 @@ nav:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  #rev-exp-canva {
+    height: 100%;
+  }
+
+  .rev-exp-ledger-stats {
+    height: 100%;
+    background-color: #fff;
+  }
   #new-ledger-credit {
     background-color: #ecf0f1;
     margin-bottom: 10px;
@@ -636,7 +636,7 @@ nav:hover {
   display: flex;
   height: calc(100% - 20px);
   width: 100%;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .right-flex {
   flex: 1;

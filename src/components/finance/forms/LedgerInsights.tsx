@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getHeadersWithAuth, getPrivateUrl } from "../../../app/ApiRequest";
 import MainNavbar from "../../menus/MainNavbar";
 import LedgerPieChart from "./LedgerPieChart";
 import LedgerDoughnut from "./LedgerDoughnut";
 import { useParams } from "react-router-dom";
+import ReactToPrint from "react-to-print";
 
 interface Revenue {
   id: number;
@@ -26,6 +27,7 @@ function LedgerInsights() {
     []
   );
   const params = useParams();
+  const componentRef = useRef(null);
 
   useEffect(() => {
     fetchLedgerInsights();
@@ -65,107 +67,143 @@ function LedgerInsights() {
     <>
       <MainNavbar />
       <div className="app-content-start">
-        <div className="ledger-insights-container">
-          <div className="right-flex">
-            <div
-              className="container-revenue"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginTop: "5px",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
-            >
-              <div style={{ width: "100%" }}>
-                <h3 style={{ marginBottom: "10px" }}>Revenue Distribution</h3>
-                <table>
-                  <tbody>
-                    <tr>
-                      <th>#</th>
-                      <th>vote head</th>
-                      <th>Amount</th>
-                      <th>%</th>
-                    </tr>
-                    {revenueInsight.map((item, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{item.item_name}</td>
-                        <td>KES {item.amount}</td>
-                        <td>{item.percentage}%</td>
+        <div className="" style={{ display: "flex", flexDirection: "column" }}>
+          <div className="ledger-insights-container" ref={componentRef}>
+            <div className="right-flex">
+              <div
+                className="container-revenue"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginTop: "5px",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+              >
+                <div style={{ width: "100%" }}>
+                  <h3 style={{ marginBottom: "10px" }}>Revenue Distribution</h3>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>#</th>
+                        <th>vote head</th>
+                        <th>Amount</th>
+                        <th>%</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                      {revenueInsight.map((item, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td>{item.item_name}</td>
+                          <td>KES {item.amount}</td>
+                          <td>{item.percentage}%</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
 
-                <div
-                  className="diplay-insights-charts-flex-zone"
-                  style={{
-                    marginTop: "20px",
-                    display: "flex",
-                  }}
-                >
-                  <div className="">
-                    <LedgerPieChart revenueData={revenueInsight} />
+                  <div
+                    className="diplay-insights-charts-flex-zone"
+                    style={{
+                      marginTop: "20px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textAlign: "center",
+                      width: "100%",
+                      display: "flex",
+                    }}
+                  >
+                    <div
+                      className=""
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        width: "250px",
+                      }}
+                    >
+                      <LedgerDoughnut revenueData={revenueInsight} />
+                    </div>
                   </div>
-                  <div className="">
-                    <LedgerDoughnut revenueData={revenueInsight} />
+                </div>
+              </div>
+            </div>
+            <div className="left-flex">
+              <div
+                className="container-revenue"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginTop: "5px",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+              >
+                <div style={{ width: "100%" }}>
+                  <h3 style={{ marginBottom: "10px" }}>
+                    Expenditure Distribution
+                  </h3>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>#</th>
+                        <th>vote head</th>
+                        <th>Amount</th>
+                        <th>%</th>
+                      </tr>
+                      {expenditureInsight.map((item, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td>{item.item_name}</td>
+                          <td>KES {item.amount}</td>
+                          <td>{item.percentage}%</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+
+                  <div
+                    className="diplay-insights-charts-flex-zone"
+                    style={{
+                      marginTop: "20px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textAlign: "center",
+                      width: "100%",
+                      display: "flex",
+                    }}
+                  >
+                    <div
+                      className=""
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        width: "250px",
+                      }}
+                    >
+                      <LedgerDoughnut revenueData={expenditureInsight} />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="left-flex">
-            <div
-              className="container-revenue"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginTop: "10px",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
-            >
-              <div style={{ width: "100%" }}>
-                <h3 style={{ marginBottom: "10px" }}>
-                  Expenditure Distribution
-                </h3>
-                <table>
-                  <tbody>
-                    <tr>
-                      <th>#</th>
-                      <th>vote head</th>
-                      <th>Amount</th>
-                      <th>%</th>
-                    </tr>
-                    {expenditureInsight.map((item, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{item.item_name}</td>
-                        <td>KES {item.amount}</td>
-                        <td>{item.percentage}%</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-
-                <div
-                  className="diplay-insights-charts-flex-zone"
-                  style={{
-                    marginTop: "20px",
-                    display: "flex",
-                  }}
-                >
-                  <div className="">
-                    <LedgerPieChart revenueData={expenditureInsight} />
-                  </div>
-                  <div className="">
-                    <LedgerDoughnut revenueData={expenditureInsight} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ReactToPrint
+            trigger={() => (
+              <button
+                style={{
+                  background: "aqua",
+                  height: "30px",
+                  marginLeft: "20px",
+                  marginRight: "20px",
+                  width: "calc(100% - 40px)",
+                }}
+              >
+                print
+              </button>
+            )}
+            content={() => componentRef.current}
+          />
         </div>
       </div>
     </>

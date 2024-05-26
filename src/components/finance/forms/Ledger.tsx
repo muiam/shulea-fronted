@@ -215,7 +215,7 @@ function Ledger() {
               <tr>
                 <th>#</th>
                 <th>Type</th>
-                <th>Heading</th>
+                <th>Head</th>
                 <th>Description</th>
                 <th>Receipt</th>
                 <th>Amount</th>
