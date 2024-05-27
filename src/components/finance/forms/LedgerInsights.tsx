@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { getHeadersWithAuth, getPrivateUrl } from "../../../app/ApiRequest";
 import MainNavbar from "../../menus/MainNavbar";
-import LedgerPieChart from "./LedgerPieChart";
 import LedgerDoughnut from "./LedgerDoughnut";
 import { useParams } from "react-router-dom";
 import ReactToPrint from "react-to-print";
