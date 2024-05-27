@@ -8,7 +8,7 @@ interface FeeBalance {
   id: number;
   academic_year_name: string;
   student_name: string;
-  level_name: string;
+  student_level_name: string;
   amount: number;
 }
 interface Level {
@@ -74,7 +74,6 @@ function FeeBalances() {
         }
       );
       if (response.status == 200) {
-        toast.success("fetch these fee balances based on your creteria");
         let data = await response.json();
         setFeeBalancesData(data.fee_balances);
         setTotals(data.total_amount);
@@ -124,7 +123,7 @@ function FeeBalances() {
                 <th>#</th>
                 <th>Student</th>
                 <th>Nemis/Adm number</th>
-                <th>Grade</th>
+                <th>Current Grade</th>
                 <th>Amount</th>
                 <th>Receive</th>
               </tr>
@@ -133,7 +132,7 @@ function FeeBalances() {
                   <td>{index + 1}</td>
                   <td>{item.student_name}</td>
                   <td>0123</td>
-                  <td>Grade {item.level_name}</td>
+                  <td>Grade {item.student_level_name}</td>
                   <td>KES {item.amount}</td>
                   <td>
                     <button

@@ -31,6 +31,15 @@ interface County {
   value: string;
   constituencies: Constituency[];
 }
+interface AcademicYear {
+  id: number;
+  name: string;
+  current: boolean;
+}
+interface Term {
+  id: number;
+  name: string;
+}
 
 const AddStudentForm = () => {
   const [admissionNumber, setAdmissionNumber] = useState("");
@@ -41,6 +50,10 @@ const AddStudentForm = () => {
   const [selectedCurriculum, setSelectedCurriculum] = useState<number | null>(
     null
   );
+  const [selectedYearId, setSelectedYearId] = useState<number | null>(null);
+  const [allYear, setAllYear] = useState<AcademicYear[]>([]);
+  const [selectedTermId, setSelectedTermId] = useState<number | null>(null);
+  const [allTerms, setAllTerm] = useState<Term[]>([]);
   const navigate = useNavigate();
   const [selectedCounty, setSelectedCounty] = useState<County | null>(null);
   const [selectedConstituency, setSelectedConstituency] =
@@ -118,6 +131,8 @@ const AddStudentForm = () => {
         county: selectedCounty,
         constituency: selectedConstituency,
         ward: selectedWard,
+        academic_year: selectedYearId,
+        term: selectedTermId,
       }),
     });
     setLoading(false);
@@ -194,13 +209,34 @@ const AddStudentForm = () => {
       .catch((error) => console.error("Error fetching levels:", error));
   }, []);
 
+  useEffect(() => {
+    fetch(getPrivateUrl("actions/allYears"), {
+      method: "GET",
+      headers: getHeadersWithAuth(),
+    })
+      .then((response) => response.json())
+      .then((data) => setAllYear(data))
+      .catch((error) => console.error("Error fetching levels:", error));
+  }, []);
+
+  useEffect(() => {
+    if (selectedYearId) {
+      fetch(getPrivateUrl(`actions/allTerms?year=${selectedYearId}`), {
+        method: "GET",
+        headers: getHeadersWithAuth(),
+      })
+        .then((response) => response.json())
+        .then((data) => setAllTerm(data))
+        .catch((error) => toast.error("Error fetching terms:", error));
+    }
+  }, [selectedYearId]);
+
   return (
     <>
       <MainNavbar />
       <ToastContainer />
       <div className="app-content-start">
-        <div className="add-start">
-          <h2>Proceed to admit a student</h2>
+        <div className="add-start" style={{ marginTop: 0 }}>
           <div
             className=""
             style={{ display: "flex", flexDirection: "column" }}
@@ -237,7 +273,6 @@ const AddStudentForm = () => {
                   styles={{
                     control: (baseStyles) => ({
                       ...baseStyles,
-                      background: "aqua",
                       height: "50px",
                     }),
                   }}
@@ -263,6 +298,68 @@ const AddStudentForm = () => {
                     </option>
                   ))}
                 </select>
+              </div>
+              <div className="add-form">
+                <div
+                  className=""
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "60px",
+                  }}
+                >
+                  <select
+                    name=""
+                    id=""
+                    onChange={(e) => setSelectedYearId(Number(e.target.value))}
+                    value={selectedYearId || ""}
+                  >
+                    <option value="" disabled>
+                      select Year
+                    </option>
+
+                    {allYear.map((year) => (
+                      <option key={year.id} value={year.id}>
+                        {year.name}
+                      </option>
+                    ))}
+                  </select>
+                  <p style={{ color: "red", marginBottom: "5px" }}>
+                    for past billing accuracy
+                  </p>
+                </div>
+              </div>
+              <div className="add-form">
+                <div
+                  className=""
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "60px",
+                  }}
+                >
+                  <select
+                    name=""
+                    id=""
+                    onChange={(e) => setSelectedTermId(Number(e.target.value))}
+                    value={selectedTermId || ""}
+                  >
+                    <option value="" disabled>
+                      select Term
+                    </option>
+
+                    {allTerms.map((term) => (
+                      <option key={term.id} value={term.id}>
+                        {term.name}
+                      </option>
+                    ))}
+                  </select>
+                  <p style={{ color: "red", marginBottom: "5px" }}>
+                    for past reconciliation
+                  </p>
+                </div>
               </div>
               <div className="add-form">
                 <select
@@ -304,11 +401,10 @@ const AddStudentForm = () => {
                   value={selectedCounty}
                   onChange={handleCountyChange}
                   options={options}
-                  placeholder="Select County"
+                  placeholder="County (optional)"
                   styles={{
                     control: (baseStyles) => ({
                       ...baseStyles,
-                      background: "aqua",
                       height: "50px",
                     }),
                   }}
@@ -322,11 +418,11 @@ const AddStudentForm = () => {
                     value={selectedConstituency}
                     onChange={handleConstituencyChange}
                     options={selectedCounty.constituencies}
-                    placeholder="Select Constituency"
+                    placeholder="Constituency (optional)"
                     styles={{
                       control: (baseStyles) => ({
                         ...baseStyles,
-                        background: "aqua",
+
                         height: "50px",
                       }),
                     }}
@@ -341,11 +437,11 @@ const AddStudentForm = () => {
                     value={selectedWard}
                     onChange={handleWardChange}
                     options={selectedConstituency.wards}
-                    placeholder="Select Ward"
+                    placeholder="Ward (optional)"
                     styles={{
                       control: (baseStyles) => ({
                         ...baseStyles,
-                        background: "aqua",
+
                         height: "50px",
                       }),
                     }}
