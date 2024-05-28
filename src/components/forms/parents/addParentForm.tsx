@@ -61,13 +61,25 @@ const AddParentForm = () => {
         password: password,
       }),
     });
+    setEmail("");
+    setFirstName("");
+    setLastName("");
+    setSelectedCounty(null);
+    setselectedGender("");
+    setSelectedConstituency(null);
+    setSelectedWard(null);
+    setSelectedCode("");
+    setPassword("");
+    setPhone("");
     setLoading(false);
     if (response.status == 201) {
       toast.success(
         "success, we shall email the parent the login credentials if email was entered"
       );
     } else if (response.status == 400) {
-      toast.error("an error occurred. Maybe mandatory fields were skipped");
+      toast.error(
+        "mandatory fields were skipped or parent aleady registered on shulea"
+      );
     } else if (response.status == 403) {
       toast.error("you have no rights to perform this ");
     } else if (response.status == 401) {
@@ -75,8 +87,8 @@ const AddParentForm = () => {
       navigate("/");
     } else {
       toast.error("you are not authenticated");
-      localStorage.removeItem("access");
-      navigate("/");
+      // localStorage.removeItem("access");
+      // navigate("/");
     }
   };
 
