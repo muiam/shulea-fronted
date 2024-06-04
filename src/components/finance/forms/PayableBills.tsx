@@ -156,11 +156,13 @@ function PayableBills() {
               ))}
             </select>
           </div>
-          <div
-            className="new-fee-btn"
-            style={{ background: "aqua", flex: 1, marginRight: "10px" }}
-          >
-            <button onClick={() => navigate("/billing/new/")}>New</button>
+          <div className="new-fee-btn" style={{ flex: 1, marginRight: "10px" }}>
+            <button
+              style={{ height: "40px" }}
+              onClick={() => navigate("/billing/new/")}
+            >
+              New
+            </button>
           </div>
         </div>
         <div style={{ marginRight: "10px" }}>

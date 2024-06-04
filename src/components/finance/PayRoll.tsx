@@ -138,7 +138,11 @@ function PayRoll() {
       <ToastContainer />
       <MainNavbar />
       <div className="app-content-start">
-        <div className="add-new" id="new-payroll-entries-zone">
+        <div
+          className="add-new"
+          id="new-payroll-entries-zone"
+          style={{ marginBottom: "10px" }}
+        >
           <select
             onChange={handleYearChange}
             value={selectedYearId || ""}
@@ -180,7 +184,12 @@ function PayRoll() {
           </div>
         </div>
 
-        <div className="payroll-table" style={{ marginRight: "10px" }}>
+        <div
+          className="payroll-table"
+          style={{
+            marginRight: "10px",
+          }}
+        >
           <table>
             <tbody>
               <tr>

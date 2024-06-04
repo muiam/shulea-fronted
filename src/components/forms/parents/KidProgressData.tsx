@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MainNavbar from "../../menus/MainNavbar";
 import { getHeadersWithAuth, getPrivateUrl } from "../../../app/ApiRequest";
 import { useLocation } from "react-router-dom";
 import ResultsChart from "../students/ResultsChart";
 import { ToastContainer, toast } from "react-toastify";
+import ReactToPrint from "react-to-print";
 
 interface Level {
   stream?: string;
@@ -45,6 +46,9 @@ function ProgressData() {
   const [previousTotal, setPreviousTotal] = useState<number | null>(null);
   const [percentageChange, setPercentageChange] = useState<number | null>(null);
   const [examWiseTotals, setExamWiseTotals] = useState<ExamWiseTotals>({});
+  const componentRef = useRef(null);
+  const [studentCurrentLevel, setStudentCurrentLevel] = useState<number>(0);
+  const [resultsLevel, setResultsLevel] = useState<number>(0);
   useEffect(() => {
     fetch(getPrivateUrl("actions/levels"), {
       method: "GET",
@@ -63,13 +67,10 @@ function ProgressData() {
   useEffect(() => {
     const getStudents = async () => {
       if (selectedLevelId !== null) {
-        let response = await fetch(
-          getPrivateUrl(`actions/my/student/level/${selectedLevelId}`),
-          {
-            method: "GET",
-            headers: getHeadersWithAuth(),
-          }
-        );
+        let response = await fetch(getPrivateUrl(`actions/all/my/students`), {
+          method: "GET",
+          headers: getHeadersWithAuth(),
+        });
         if (response.status === 200) {
           let data = await response.json();
           setStudents(data);
@@ -111,6 +112,8 @@ function ProgressData() {
           setPercentageChange(data.percentage_change);
           setExamName(data.exam_results[0].exam_name);
           setExamWiseTotals(data.exam_wise_totals);
+          setStudentCurrentLevel(data.student_current_grade);
+          setResultsLevel(data.exam_results[0].level);
         } else {
           toast.error(
             "there was an error causing this failure. Contact your school"
@@ -171,7 +174,11 @@ function ProgressData() {
               ))}
             </select>
           </div>
-          <div className="perfomance-container" id="perfomance-container">
+          <div
+            className="perfomance-container"
+            id="perfomance-container"
+            ref={componentRef}
+          >
             <div className="report-form-zone">
               <div className="results-form-table">
                 <table>
@@ -233,7 +240,13 @@ function ProgressData() {
               <div className="report-form-header">
                 <p>{schoolName}</p>
                 <p>{examName}</p>
-                <p>{studentName}</p>&nbsp;<h2>GRADE : {gradeLevel}</h2>
+                <p>{studentName}</p>&nbsp;
+                <h2>EXAM WHEN IN GRADE : {gradeLevel}</h2>
+                {studentCurrentLevel === resultsLevel ? (
+                  <p>This is student's current level</p>
+                ) : (
+                  <p>Not student's current level</p>
+                )}
               </div>
               <h2
                 style={{
@@ -247,6 +260,24 @@ function ProgressData() {
               <ResultsChart examData={examWiseTotals} />
             </div>
           </div>
+          {examResults.length > 0 && (
+            <ReactToPrint
+              trigger={() => (
+                <button
+                  style={{
+                    background: "aqua",
+                    width: "150px",
+                    height: "40px",
+                    marginBottom: "20px",
+                    float: "right",
+                  }}
+                >
+                  print results
+                </button>
+              )}
+              content={() => componentRef.current}
+            />
+          )}
         </div>
       </div>
     </>

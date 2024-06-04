@@ -263,9 +263,9 @@ function FeesPayable() {
           </div>
           <div
             className="new-fee-btn"
-            style={{ background: "aqua", flex: 1, marginRight: "10px" }}
+            style={{  flex: 1, marginRight: "10px" }}
           >
-            <button onClick={newFeePayable}>New</button>
+            <button  style={{height:"40px"}} onClick={newFeePayable}>New</button>
           </div>
         </div>
         <div style={{ marginRight: "10px" }}>

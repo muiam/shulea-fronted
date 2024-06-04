@@ -176,6 +176,7 @@ input[type="number"] {
   box-sizing: border-box;
   outline: none;
   font-family: "Courier New", Courier, monospace;
+  /* font-family: "Times New Roman", Times, serif; */
 }
 nav {
   z-index: 1;
@@ -237,7 +238,7 @@ nav ul li a:hover {
   background-color: white;
 }
 nav:hover {
-  width: 250px;
+  width: 280px;
   transition: all 0.5s ease;
 }
 .logout {
