@@ -154,11 +154,9 @@ function BilledList() {
               ))}
             </select>
           </div>
-          <div
-            className="new-fee-btn"
-            style={{ background: "aqua", flex: 1, marginRight: "10px" }}
-          >
+          <div className="new-fee-btn" style={{ flex: 1, marginRight: "10px" }}>
             <button
+              style={{ height: "40px" }}
               onClick={() => navigate(`/bill/students/${params.billId}/`)}
             >
               Bill student
@@ -205,8 +203,13 @@ function BilledList() {
                           handleAmountChange(index, e.target.value)
                         }
                         type="number"
-                        placeholder="amount"
-                        style={{ height: "100%", width: "50%" }}
+                        placeholder="eg 100"
+                        style={{
+                          height: "100%",
+                          width: "50%",
+                          backgroundColor: "white",
+                          textIndent: "10px",
+                        }}
                       />
                       <button
                         style={{
