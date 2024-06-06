@@ -37,6 +37,8 @@ function loginComponent() {
       }),
     });
     setLoading(false);
+    setEmail("");
+    setPassword("");
     if (email == "") {
       toast.error("email is a required field");
     } else if (password == "") {
