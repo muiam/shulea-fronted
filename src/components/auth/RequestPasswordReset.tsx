@@ -3,8 +3,6 @@ import shulea300 from "../../../public/shulea-bw.svg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getPrivateUrl } from "../../app/ApiRequest";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 function RequestPasswordReset() {
   const [loading, setLoading] = useState(false);
@@ -32,108 +30,20 @@ function RequestPasswordReset() {
     }
   };
 
-  const styles = {
-    advert: {
-      backgroundColor: "rgba(255, 255, 255, 0.8)",
-      maxWidth: "600px",
-      padding: "20px",
-      borderRadius: "8px",
-      textAlign: "center" as "center", // Corrected
-    },
-    advertTitle: {
-      fontSize: "24px",
-      fontWeight: "bold",
-      marginBottom: "20px",
-    },
-    advertText: {
-      fontSize: "16px",
-      marginBottom: "20px",
-    },
-    advertList: {
-      textAlign: "left" as "left", // Corrected
-      listStyleType: "none",
-      paddingLeft: "0",
-    },
-    advertListItem: {
-      marginBottom: "10px",
-    },
-    contactSection: {
-      marginTop: "30px",
-    },
-  };
-
   return (
     <>
       <ToastContainer />
       <div className="login-flex">
         <div className="login-wallpaper" id="login-wallpaper">
-          <div style={styles.advert}>
-            <h2 style={styles.advertTitle}>
-              Why Choose Our School Management System?
-            </h2>
-            <p style={styles.advertText}>
-              Our school management system offers comprehensive features to
-              streamline administrative tasks, enhance communication, and
-              improve overall efficiency. Here's why it's the best choice for
-              your school:
-            </p>
-            <ul style={styles.advertList}>
-              <li style={styles.advertListItem}>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  style={{ color: "aqua", fontSize: "15px" }}
-                />{" "}
-                Efficient Student Management: Easily manage student information,
-                progress and grades.
-              </li>
-              <li style={styles.advertListItem}>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  style={{ color: "aqua", fontSize: "15px" }}
-                />{" "}
-                Effective Communication: Facilitate communication between
-                teachers and parents.
-              </li>
-              <li style={styles.advertListItem}>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  style={{ color: "aqua", fontSize: "15px" }}
-                />{" "}
-                CBC support : CBC curriculum supported with cambridge and
-                edexcel also integrated
-              </li>
-              <li style={styles.advertListItem}>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  style={{ color: "aqua", fontSize: "15px" }}
-                />{" "}
-                User-Friendly Interface: Intuitive design makes it easy for
-                users to navigate and use the system.
-              </li>
-              <li style={styles.advertListItem}>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  style={{ color: "aqua", fontSize: "15px" }}
-                />{" "}
-                Data visualizatiin: we show your data in graphs , bars and
-                tables for easy interpretation
-              </li>
-
-              <li style={styles.advertListItem}>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  style={{ color: "aqua", fontSize: "15px" }}
-                />{" "}
-                Secure and Reliable: Ensure data security and reliability with
-                robust security measures.
-              </li>
-            </ul>
-            <div style={styles.contactSection}>
-              <h3>Contact Us for Subscription Enquiries</h3>
-              <p>Email: info@example.com</p>
-              <p>Phone: +254 714457130</p>
-            </div>
-          </div>
+          <img
+            style={{
+              width: "100%",
+              borderRadius: "8px",
+            }}
+            src="https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?w=740&t=st=1717650604~exp=1717651204~hmac=9a403c2a22a2147fbb7b0b3bb10f8bff4ea04b8f6e0ff5dcf89eba589c1b5989"
+            loading="lazy"
+            alt="shulea-login-bg-wallpaper"
+          />
         </div>
         <div className="login-page">
           <div
